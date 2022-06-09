@@ -7,7 +7,7 @@ import {
   TextField,
   Button,
 } from "@mui/material";
-import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutline'
+import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutline";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -19,7 +19,7 @@ const Signup = () => {
   const headerStyle = { margin: 0 };
   const avatarStyle = { backgroundColor: "#d64224" };
   const marginTop = { marginTop: 5 };
-  const btnstyle={backgroundColor:"#d64224"}
+  const btnstyle = { backgroundColor: "#d64224" };
   return (
     <Grid>
       <Paper elevation={20} style={paperStyle}>
@@ -47,7 +47,14 @@ const Signup = () => {
                 control={<Radio />}
                 label="Female"
               />
-              <FormControlLabel value="male" control={<Radio />} label="Male" />
+              <FormControlLabel 
+              value="male" 
+              control={<Radio />}
+               label="Male" />
+               <FormControlLabel 
+              value="other" 
+              control={<Radio />}
+               label="Other" />
             </RadioGroup>
           </FormControl>
           <TextField
@@ -69,8 +76,13 @@ const Signup = () => {
             control={<Checkbox name="checkedA" />}
             label="I accept the terms and conditions."
           />
-          <Button type="submit" variant="contained" color="primary" style={btnstyle} >
-           Register
+          <Button
+            type="submit"
+            variant="contained"
+            color="primary"
+            style={btnstyle}
+          >
+            Register
           </Button>
         </form>
       </Paper>
