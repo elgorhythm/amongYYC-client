@@ -12,11 +12,14 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
+import { bgcolor } from "@mui/system";
+import { useNavigate } from "react-router-dom";
 
 const pages = ["Game", "Events", "Sponsors", "About"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 const ResponsiveAppBar = () => {
+  let navigate = useNavigate(); 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -35,11 +38,24 @@ const ResponsiveAppBar = () => {
     setAnchorElUser(null);
   };
   const appBarStyle = { backgroundColor: "#d64224" };
+  const logButChange=()=>{
+    let path = `/signin`; 
+    navigate(path);
+  }
+  const RegButChange=()=>{
+    let path = `/signUp`; 
+    navigate(path);
+  }
+
+  const handleAbdIcon=()=>{
+    let path=`/`
+    navigate(path)
+  }
   return (
     <AppBar position="static" style={appBarStyle}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
+          <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} onClick={handleAbdIcon} />
           <Typography
             variant="h6"
             noWrap
@@ -124,7 +140,18 @@ const ResponsiveAppBar = () => {
               </Button>
             ))}
           </Box>
-
+          <Box p={2}>
+            <Button
+              sx={{ color: "inherit", bgcolor: "red", margin: 1 }}
+              variant="contained"
+              onClick={logButChange}
+            >
+              Login
+            </Button>
+            <Button variant="contained" sx={{ bgcolor: "red" }} onClick={RegButChange}>
+              Register
+            </Button>
+          </Box>
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
