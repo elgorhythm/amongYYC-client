@@ -1,14 +1,21 @@
+import { Box, Stack } from "@mui/material";
 import React from "react";
-
+import GameFeed from "../../components/gameFeed/GameFeed";
+import SideBar from "../../components/sideBar/SideBar";
 import NavBar from "../../components/navbar/NavBar";
-import "./home.css";
+import RightBar from "../../components/rightBar/RightBar";
+
 
 const Home = () => {
   return (
-    <div>
+    <Box>
       <NavBar />
-      
-    </div>
+      <Stack direction="row" spacing={2} justifyContent="space-between">
+        <SideBar />
+        <GameFeed />
+        <RightBar />
+      </Stack>
+    </Box>
   );
 };
 
