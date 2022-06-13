@@ -17,16 +17,18 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import { useContext } from "react";
 
-
-const appBarMenus= ["Game", "Events", "Sponsors", "About"];
+const appBarMenus = ["Game", "Events", "Sponsors", "About"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 const ResponsiveAppBar = () => {
-  let navigate = useNavigate(); 
+  let navigate = useNavigate();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const authContext = useContext(AuthContext);
+
+  // const logoutFn = authContext.logout;
+
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -42,25 +44,60 @@ const ResponsiveAppBar = () => {
     setAnchorElUser(null);
   };
   const appBarStyle = { backgroundColor: "#d64224" };
-  const logButChange=()=>{
-    let path = `/signin`; 
-    navigate(path);
-  }
-  const RegButChange=()=>{
-    let path = `/signUp`; 
-    navigate(path);
-  }
 
-  const handleAbdIcon=()=>{
-    let path=`/`
-    navigate(path)
-  }
-  
+  const logButChange = () => {
+    let path = `/signin`;
+    navigate(path);
+  };
+  const RegButChange = () => {
+    let path = `/signUp`;
+    navigate(path);
+  };
+
+  const handleAbdIcon = () => {
+    let path = `/`;
+    navigate(path);
+  };
+
+  let user = "";
+  const logoutBtn = (
+    <Button
+      sx={{ color: "inherit", bgcolor: "red", margin: 1, width: "90px" }}
+      variant="contained"
+      // onClick={() => logoutFn()}
+    >
+      LOGOUT
+    </Button>
+  );
+
+  const loginBtn = (
+    <Button
+      sx={{ color: "inherit", bgcolor: "red", margin: 1, width: "90px" }}
+      variant="contained"
+      onClick={logButChange}
+    >
+      LOGIN
+    </Button>
+  );
+
+  const regBtn = (
+    <Button
+      variant="contained"
+      sx={{ bgcolor: "red", width: "90px" }}
+      onClick={RegButChange}
+    >
+      Register
+    </Button>
+  );
+
   return (
     <AppBar position="static" style={appBarStyle}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} onClick={handleAbdIcon} />
+          <AdbIcon
+            sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}
+            onClick={handleAbdIcon}
+          />
           <Typography
             variant="h6"
             noWrap
@@ -90,30 +127,32 @@ const ResponsiveAppBar = () => {
             >
               <MenuIcon />
             </IconButton>
-            {<Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: "block", md: "none" },
-              }}
-            >
-              {appBarMenus.map((appBarMenus) => (
-                <MenuItem key={appBarMenus} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{appBarMenus}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>}
+            {
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorElNav}
+                anchorOrigin={{
+                  vertical: "bottom",
+                  horizontal: "left",
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "left",
+                }}
+                open={Boolean(anchorElNav)}
+                onClose={handleCloseNavMenu}
+                sx={{
+                  display: { xs: "block", md: "none" },
+                }}
+              >
+                {appBarMenus.map((appBarMenus) => (
+                  <MenuItem key={appBarMenus} onClick={handleCloseNavMenu}>
+                    <Typography textAlign="center">{appBarMenus}</Typography>
+                  </MenuItem>
+                ))}
+              </Menu>
+            }
           </Box>
           <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
           <Typography
@@ -145,20 +184,10 @@ const ResponsiveAppBar = () => {
               >
                 {appBarMenus}
               </Button>
-           ))}
+            ))}
           </Box>
-          <Box p={2}>
-            <Button
-              sx={{ color: "inherit", bgcolor: "red", margin: 1 }}
-              variant="contained"
-              onClick={logButChange}
-            >
-              Login
-            </Button>
-            <Button variant="contained" sx={{ bgcolor: "red" }} onClick={RegButChange}>
-              Register
-            </Button>
-          </Box>
+          <Box >{user ? logoutBtn : loginBtn}</Box>
+          <Box > {user ? null : regBtn}</Box>
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -182,10 +211,12 @@ const ResponsiveAppBar = () => {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} 
-                component={Link}
-                to={`/${setting}`}
-                onClick={handleCloseUserMenu}>
+                <MenuItem
+                  key={setting}
+                  component={Link}
+                  to={`/${setting}`}
+                  onClick={handleCloseUserMenu}
+                >
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}
