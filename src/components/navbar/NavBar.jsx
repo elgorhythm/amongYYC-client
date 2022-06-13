@@ -13,9 +13,9 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import { bgcolor } from "@mui/system";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-const pages = ["Game", "Events", "Sponsors", "About"];
+const appBarMenus= ["Game", "Events", "Sponsors", "About"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 const ResponsiveAppBar = () => {
@@ -85,7 +85,7 @@ const ResponsiveAppBar = () => {
             >
               <MenuIcon />
             </IconButton>
-            <Menu
+            {<Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
               anchorOrigin={{
@@ -103,12 +103,12 @@ const ResponsiveAppBar = () => {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+              {appBarMenus.map((appBarMenus) => (
+                <MenuItem key={appBarMenus} onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">{appBarMenus}</Typography>
                 </MenuItem>
               ))}
-            </Menu>
+            </Menu>}
           </Box>
           <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
           <Typography
@@ -130,15 +130,17 @@ const ResponsiveAppBar = () => {
             LOGO
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
+            {appBarMenus.map((appBarMenus) => (
               <Button
-                key={page}
+                key={appBarMenus}
+                component={Link}
+                to={`/${appBarMenus}`}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
-                {page}
+                {appBarMenus}
               </Button>
-            ))}
+           ))}
           </Box>
           <Box p={2}>
             <Button
@@ -175,7 +177,10 @@ const ResponsiveAppBar = () => {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                <MenuItem key={setting} 
+                component={Link}
+                to={`/${setting}`}
+                onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}
