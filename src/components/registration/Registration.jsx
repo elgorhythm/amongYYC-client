@@ -59,8 +59,8 @@ const Signup = () => {
           </FormControl>
           <TextField
             fullWidth
-            label="Phone Number"
-            placeholder="Enter your phone number"
+            label="Email"
+            placeholder="Enter your email "
           />
           <TextField
             fullWidth
