@@ -14,6 +14,9 @@ import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import { bgcolor } from "@mui/system";
 import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProvider";
+import { useContext } from "react";
+
 
 const appBarMenus= ["Game", "Events", "Sponsors", "About"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
@@ -23,6 +26,7 @@ const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
+  const authContext = useContext(AuthContext);
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -51,6 +55,7 @@ const ResponsiveAppBar = () => {
     let path=`/`
     navigate(path)
   }
+  
   return (
     <AppBar position="static" style={appBarStyle}>
       <Container maxWidth="xl">

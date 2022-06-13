@@ -32,14 +32,14 @@ const Signup = () => {
   const [name, setName] = useState();
   const [email, setEmail] = useState();
   const [gender, setGender] = useState("test gender");
-  const [phone, setPhone] = useState();
+  const [age, setAge] = useState();
   const [password, setPassword] = useState();
   const [rePassword, setRePassword] = useState();
   const [terms, setTerms] = useState(false);
   const [error, setError] = useState();
 
   const register = () => {
-    if (!name || !email || !gender || !phone || !password || !terms) {
+    if (!name || !email || !gender || !age || !password || !terms) {
       setError("All fields are required");
     } else if (password !== rePassword) {
       setError("Passwords do not match");
@@ -47,7 +47,7 @@ const Signup = () => {
       try {
         signupFn(email, password);
         const signupError = authContext.authError;
-        signupError ? setError(signupError) : navigate("/");
+        setError(signupError)
       } catch {
         setError(signupError.toString().slice(9));
       }
@@ -108,10 +108,10 @@ const Signup = () => {
           </FormControl>
           <TextField
             fullWidth
-            label="Email"
+            label="Age"
             placeholder="Enter your email "
             onChange={(event) => {
-              setPhone(event.target.value);
+              setAge(event.target.value);
             }}
           />
           <TextField
