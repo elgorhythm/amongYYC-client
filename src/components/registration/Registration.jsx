@@ -36,20 +36,27 @@ const Signup = () => {
   const [password, setPassword] = useState();
   const [rePassword, setRePassword] = useState();
   const [terms, setTerms] = useState(false);
-  const [error, setError] = useState();
+  const [regError, setRegError] = useState(null);
 
   const register = () => {
-    if (!name || !email || !gender || !age || !password || !terms) {
-      setError("All fields are required");
+    setRegError(null);
+    if (
+      !name ||
+      !email ||
+      !gender ||
+      !age ||
+      !password ||
+      !rePassword ||
+      !terms
+    ) {
+      setRegError("All fields are required");
     } else if (password !== rePassword) {
-      setError("Passwords do not match");
+      setRegError("Passwords do not match");
     } else {
       try {
         signupFn(email, password);
-        const signupError = authContext.authError;
-        setError(signupError)
       } catch {
-        setError(signupError.toString().slice(9));
+        console.log("ex");
       }
     }
   };
@@ -130,7 +137,11 @@ const Signup = () => {
               setRePassword(event.target.value);
             }}
           />
-          <p style={{ color: "red" }}>{error}</p>
+          {
+            <p style={{ color: "red" }}>
+              {regError ? regError : signupError}
+            </p>
+          }
           <FormControlLabel
             control={<Checkbox name="checkedA" />}
             label="I accept the terms and conditions."

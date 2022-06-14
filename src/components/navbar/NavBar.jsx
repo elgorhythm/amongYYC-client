@@ -27,7 +27,7 @@ const ResponsiveAppBar = () => {
 
   const authContext = useContext(AuthContext);
 
-  // const logoutFn = authContext.logout;
+  const logoutFn = authContext.logout;
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -64,7 +64,7 @@ const ResponsiveAppBar = () => {
     <Button
       sx={{ color: "inherit", bgcolor: "red", margin: 1, width: "90px" }}
       variant="contained"
-      // onClick={() => logoutFn()}
+      onClick={() => logoutFn()}
     >
       LOGOUT
     </Button>

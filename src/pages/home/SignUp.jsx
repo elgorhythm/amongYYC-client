@@ -11,16 +11,16 @@ import AuthProvider from "../../providers/AuthProvider";
 const SignUp = () => {
   return (
     <Box>
-      <NavBar />
-      <Stack direction="row" spacing={2} justifyContent="space-between">
-        <SideBar />
-        <FirebaseProvider>
-          <AuthProvider>
+      <FirebaseProvider>
+        <AuthProvider>
+          <NavBar />
+          <Stack direction="row" spacing={2} justifyContent="space-between">
+            <SideBar />
             <Registration />
-          </AuthProvider>
-        </FirebaseProvider>
-        <RightBar />
-      </Stack>
+            <RightBar />
+          </Stack>
+        </AuthProvider>
+      </FirebaseProvider>
     </Box>
   );
 };

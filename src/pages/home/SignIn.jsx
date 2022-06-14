@@ -10,16 +10,16 @@ import AuthProvider from "../../providers/AuthProvider";
 function SignIn() {
   return (
     <Box>
-      <NavBar />
-      <Stack direction="row" spacing={2} justifyContent="space-between">
-        <SideBar />
-        <FirebaseProvider>
-          <AuthProvider>
+      <FirebaseProvider>
+        <AuthProvider>
+          <NavBar />
+          <Stack direction="row" spacing={2} justifyContent="space-between">
+            <SideBar />
             <Login />
-          </AuthProvider>
-        </FirebaseProvider>
-        <RightBar />
-      </Stack>
+            <RightBar />
+          </Stack>
+        </AuthProvider>
+      </FirebaseProvider>
     </Box>
   );
 }
