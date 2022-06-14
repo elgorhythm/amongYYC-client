@@ -30,7 +30,6 @@ function AuthProvider(props) {
     } catch (ex) {
       console.log('REG FAILURE!', ex.message);
       setAuthError(ex.message);
-      console.log("Auth error is",authError)
     }
   };
 

@@ -36,10 +36,9 @@ const Signup = () => {
   const [password, setPassword] = useState();
   const [rePassword, setRePassword] = useState();
   const [terms, setTerms] = useState(false);
-  const [regError, setRegError] = useState(null);
+  const [inputErr, setInputErr] = useState(null);
 
   const register = () => {
-    setRegError(null);
     if (
       !name ||
       !email ||
@@ -49,14 +48,16 @@ const Signup = () => {
       !rePassword ||
       !terms
     ) {
-      setRegError("All fields are required");
+      setInputErr("All fields are required");
     } else if (password !== rePassword) {
-      setRegError("Passwords do not match");
+      setInputErr("Passwords do not match");
     } else {
       try {
+        setInputErr(null);
         signupFn(email, password);
-      } catch {
-        console.log("ex");
+      //  Add navigate("/") if user info recieved
+      } catch (ex) {
+        console.log(ex);
       }
     }
   };
@@ -124,6 +125,7 @@ const Signup = () => {
           <TextField
             fullWidth
             label="Password"
+            type="password"
             placeholder="Enter your password"
             onChange={(event) => {
               setPassword(event.target.value);
@@ -132,16 +134,15 @@ const Signup = () => {
           <TextField
             fullWidth
             label="Confirm Password"
+            type="password"
             placeholder="Confirm your password"
             onChange={(event) => {
               setRePassword(event.target.value);
             }}
           />
-          {
-            <p style={{ color: "red" }}>
-              {regError ? regError : signupError}
-            </p>
-          }
+          {(signupError || inputErr) && (
+            <p style={{ color: "red" }}>{inputErr ? inputErr : signupError.toString().slice(9)}</p>
+          )}
           <FormControlLabel
             control={<Checkbox name="checkedA" />}
             label="I accept the terms and conditions."

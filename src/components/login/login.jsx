@@ -23,25 +23,26 @@ const Login = () => {
   };
   const avatarStyle = { backgroundColor: "#d64224" };
   const btnstyle = { margin: "8px 0", backgroundColor: "#d64224" };
+  const navigate = useNavigate();
 
-  const navigate=useNavigate()
   const authContext = useContext(AuthContext);
   const loginFn = authContext.login;
   const loginError = authContext.authError;
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
-  const [error, setError] = useState();
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [inputErr, setInputErr] = useState(null);
 
   const signin = () => {
     if (!email || !password) {
-      setError("All fields are required");
+      setInputErr("All fields are required");
     } else {
       try {
+        setInputErr(null);
         loginFn(email, password);
-        const loginError = authContext.authError;
-        loginError? setError(loginError) : navigate("/");
-      } catch {
-        setError(loginError.toString().slice(9));
+        //  Add navigate("/") if user info recieved
+      } catch (ex) {
+        console.log(ex);
       }
     }
   };
@@ -60,7 +61,6 @@ const Login = () => {
           placeholder="Enter username"
           fullWidth
           required
-          value={email}
           onChange={(event) => {
             setEmail(event.target.value);
           }}
@@ -71,12 +71,13 @@ const Login = () => {
           type="password"
           fullWidth
           required
-          value={password}
           onChange={(event) => {
             setPassword(event.target.value);
           }}
         />
-         <p style={{ color: "red" }}>{error}</p>
+        {(loginError || inputErr) && (
+            <p style={{ color: "red" }}>{inputErr ? inputErr : loginError.toString().slice(9)}</p>
+          )}
         <FormControlLabel
           control={<Checkbox name="checkedB" color="primary" />}
           label="Remember me"
