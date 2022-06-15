@@ -13,6 +13,7 @@ function AuthProvider(props) {
   const children = props.children;
   const [user, setUser] = useState(null);
   const [authError, setAuthError] = useState();
+  const [isNewUser, setIsNewUser]=useState(false)
 
   const fbContext = useContext(FirebaseContext);
   const auth = fbContext.auth;
@@ -23,13 +24,17 @@ function AuthProvider(props) {
       if (userCred) {
         console.log('Registered!!', userCred.user);
         setAuthError(null);
+        setIsNewUser(true)
+        return true
       } else {
         console.log('Registration failed!');
         setAuthError("Something went wrong");
+        return false
       }
     } catch (ex) {
       console.log('REG FAILURE!', ex.message);
       setAuthError(ex.message);
+      return false
     }
   };
 
@@ -63,7 +68,7 @@ function AuthProvider(props) {
     return unsub; // to shut down onAuthStateChanged listener
   }, [auth]);
 
-  const theValues = { user, authError, login, logout, signup };
+  const theValues = { isNewUser, user, authError, login, logout, signup };
   return (
     <AuthContext.Provider value={theValues}>{children}</AuthContext.Provider>
   );

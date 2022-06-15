@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {
   Grid,
   Paper,
@@ -17,7 +17,7 @@ import Checkbox from "@mui/material/Checkbox";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import { FirebaseContext } from "../../providers/FirebaseProvider";
-import { addDoc, collection } from "firebase/firestore";
+import { collection, doc, setDoc } from "firebase/firestore";
 
 const Signup = () => {
   const paperStyle = { padding: "30px 20px", width: 300, margin: "20px auto" };
@@ -33,6 +33,7 @@ const Signup = () => {
   const signupFn = authContext.signup;
   const signupError = authContext.authError;
   const user = authContext.user;
+  const isNewUser = authContext.isNewUser;
 
   const [name, setName] = useState();
   const [email, setEmail] = useState();
@@ -43,7 +44,7 @@ const Signup = () => {
   const [termsAccept, setTermsAccept] = useState(false);
   const [inputErr, setInputErr] = useState(null);
 
-  const register = () => {
+  const register = async () => {
     if (
       !name ||
       !email ||
@@ -65,44 +66,41 @@ const Signup = () => {
     } else {
       try {
         setInputErr(null);
-        signupFn(email, password);
-        createUserData();
-        if (user) {
-          setName("");
-          setEmail("");
-          setGender("");
-          setAge("");
-          setPassword("");
-          setRePassword("");
-          setTermsAccept("");
-          navigate("/");
-        }
+        await signupFn(email, password);
       } catch (ex) {
-        //  Add navigate("/") if user info recieved
         console.log(ex);
       }
     }
   };
 
   //Needs fixing. Not saving data to firestore on first click
-  const createUserData = async () => {
-    try {
-      let collectionRef = collection(db, "users");
-      const userData = {
-        uid: user.uid,
-        email: user.email,
-        name: name,
-        gender: gender,
-        age: parseInt(age),
-        termsAccept: termsAccept,
-        admin: false,
-      };
-      await addDoc(collectionRef, userData);
-    } catch (ex) {
-      console.log("FIRESTORE ADD FAILURE!", ex.message);
-    }
-  };
 
+  useEffect(() => {
+    const createUserData = async () => {
+      console.log("useeffect being called");
+      try {
+        let collectionRef = collection(db, "users");
+        let docRef = doc(collectionRef, user.uid);
+        const userData = {
+          email: user.email,
+          name: name,
+          gender: gender,
+          age: parseInt(age),
+          termsAccept: termsAccept,
+          admin: false,
+        };
+        await setDoc(docRef, userData);
+        navigate("/");
+      } catch (ex) {
+        console.log("FIRESTORE ADD FAILURE!", ex.message);
+      }
+    };
+    if (user && isNewUser) {
+      createUserData();
+    }
+  }, [user, isNewUser]);
+  console.log("user is ", user);
+  console.log("newUser is ", isNewUser);
   return (
     <Grid>
       <Paper elevation={20} style={paperStyle}>
