@@ -26,8 +26,10 @@ const ResponsiveAppBar = () => {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const authContext = useContext(AuthContext);
-
+  const user=authContext.user
   const logoutFn = authContext.logout;
+
+  console.log("user is: ",user)
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -50,7 +52,7 @@ const ResponsiveAppBar = () => {
     navigate(path);
   };
   const RegButChange = () => {
-    let path = `/signUp`;
+    let path = `/signup`;
     navigate(path);
   };
 
@@ -59,7 +61,6 @@ const ResponsiveAppBar = () => {
     navigate(path);
   };
 
-  let user = "";
   const logoutBtn = (
     <Button
       sx={{ color: "inherit", bgcolor: "red", margin: 1, width: "90px" }}

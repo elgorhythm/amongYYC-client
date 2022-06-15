@@ -28,6 +28,7 @@ const Login = () => {
   const authContext = useContext(AuthContext);
   const loginFn = authContext.login;
   const loginError = authContext.authError;
+  const user = authContext.user;
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -40,6 +41,11 @@ const Login = () => {
       try {
         setInputErr(null);
         loginFn(email, password);
+        if (user) {
+          navigate("/");
+          setEmail("");
+          setPassword("");
+        }
         //  Add navigate("/") if user info recieved
       } catch (ex) {
         console.log(ex);
@@ -76,8 +82,10 @@ const Login = () => {
           }}
         />
         {(loginError || inputErr) && (
-            <p style={{ color: "red" }}>{inputErr ? inputErr : loginError.toString().slice(9)}</p>
-          )}
+          <p style={{ color: "red" }}>
+            {inputErr ? inputErr : loginError.toString().slice(9)}
+          </p>
+        )}
         <FormControlLabel
           control={<Checkbox name="checkedB" color="primary" />}
           label="Remember me"

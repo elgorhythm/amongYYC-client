@@ -14,8 +14,10 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import Checkbox from "@mui/material/Checkbox";
-import { AuthContext } from "../../providers/AuthProvider";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProvider";
+import { FirebaseContext } from "../../providers/FirebaseProvider";
+import { addDoc, collection } from "firebase/firestore";
 
 const Signup = () => {
   const paperStyle = { padding: "30px 20px", width: 300, margin: "20px auto" };
@@ -26,8 +28,11 @@ const Signup = () => {
   const navigate = useNavigate();
 
   const authContext = useContext(AuthContext);
+  const fbContext = useContext(FirebaseContext);
+  const db = fbContext.db;
   const signupFn = authContext.signup;
   const signupError = authContext.authError;
+  const user = authContext.user;
 
   const [name, setName] = useState();
   const [email, setEmail] = useState();
@@ -35,7 +40,7 @@ const Signup = () => {
   const [age, setAge] = useState();
   const [password, setPassword] = useState();
   const [rePassword, setRePassword] = useState();
-  const [terms, setTerms] = useState(false);
+  const [termsAccept, setTermsAccept] = useState(false);
   const [inputErr, setInputErr] = useState(null);
 
   const register = () => {
@@ -46,19 +51,55 @@ const Signup = () => {
       !age ||
       !password ||
       !rePassword ||
-      !terms
+      !termsAccept
     ) {
       setInputErr("All fields are required");
-    } else if (password !== rePassword) {
+    }
+
+    // This part needs fixing, not working properly
+    // else if (!isNaN(parseInt(age))) {
+    //   setInputErr("Invalid age");
+    // }
+    else if (password !== rePassword) {
       setInputErr("Passwords do not match");
     } else {
       try {
         setInputErr(null);
         signupFn(email, password);
-      //  Add navigate("/") if user info recieved
+        createUserData();
+        if (user) {
+          setName("");
+          setEmail("");
+          setGender("");
+          setAge("");
+          setPassword("");
+          setRePassword("");
+          setTermsAccept("");
+          navigate("/");
+        }
       } catch (ex) {
+        //  Add navigate("/") if user info recieved
         console.log(ex);
       }
+    }
+  };
+
+  //Needs fixing. Not saving data to firestore on first click
+  const createUserData = async () => {
+    try {
+      let collectionRef = collection(db, "users");
+      const userData = {
+        uid: user.uid,
+        email: user.email,
+        name: name,
+        gender: gender,
+        age: parseInt(age),
+        termsAccept: termsAccept,
+        admin: false,
+      };
+      await addDoc(collectionRef, userData);
+    } catch (ex) {
+      console.log("FIRESTORE ADD FAILURE!", ex.message);
     }
   };
 
@@ -117,7 +158,7 @@ const Signup = () => {
           <TextField
             fullWidth
             label="Age"
-            placeholder="Enter your email "
+            placeholder="Enter your age "
             onChange={(event) => {
               setAge(event.target.value);
             }}
@@ -141,13 +182,15 @@ const Signup = () => {
             }}
           />
           {(signupError || inputErr) && (
-            <p style={{ color: "red" }}>{inputErr ? inputErr : signupError.toString().slice(9)}</p>
+            <p style={{ color: "red" }}>
+              {inputErr ? inputErr : signupError.toString().slice(9)}
+            </p>
           )}
           <FormControlLabel
             control={<Checkbox name="checkedA" />}
             label="I accept the terms and conditions."
             onChange={(event) => {
-              setTerms(event.target.value);
+              setTermsAccept(event.target.value);
             }}
           />
           <Button
