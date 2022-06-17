@@ -14,22 +14,54 @@ import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import { bgcolor } from "@mui/system";
 import { Link, useNavigate } from "react-router-dom";
+import { FirebaseContext } from "../../providers/FirebaseProvider";
 import { AuthContext } from "../../providers/AuthProvider";
 import { useContext } from "react";
+import {
+  collection,
+  doc,
+  getDoc,
+  query,
+  orderBy,
+  onSnapshot,
+} from "firebase/firestore";
+import { useState, useEffect } from "react";
 
 const appBarMenus = ["Game", "Events", "Sponsors", "About"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 const ResponsiveAppBar = () => {
   let navigate = useNavigate();
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [anchorElNav, setAnchorElNav] = useState(null);
+  const [anchorElUser, setAnchorElUser] = useState(null);
+  const [name, setName] = useState(null);
 
+  const fbContext = useContext(FirebaseContext);
+  const db = fbContext.db;
   const authContext = useContext(AuthContext);
-  const user=authContext.user
+  const user = authContext.user;
   const logoutFn = authContext.logout;
 
-  console.log("user is: ",user)
+  console.log("user is: ", user); //probably need to remove this in the end
+
+  useEffect(() => {
+    const getUserData = async () => {
+      if (user) {
+        const docRef = doc(db, "users", user.uid);
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+          // console.log("Document data:", docSnap.data());
+          setName(docSnap.data().name);
+          // console.log("Name is ", docSnap.data().name);
+        } else {
+          console.log("No such document!");
+        }
+      }
+    };
+
+    getUserData();
+  }, [user]);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -65,7 +97,7 @@ const ResponsiveAppBar = () => {
     <Button
       sx={{ color: "inherit", bgcolor: "red", margin: 1, width: "90px" }}
       variant="contained"
-      onClick={() => logoutFn()}
+      onClick={() => logoutFn() && setName(null)}
     >
       LOGOUT
     </Button>
@@ -187,8 +219,27 @@ const ResponsiveAppBar = () => {
               </Button>
             ))}
           </Box>
-          <Box >{user ? logoutBtn : loginBtn}</Box>
-          <Box > {user ? null : regBtn}</Box>
+          <Box>
+            {name && (
+              <Typography
+                variant="h7"
+                // noWrap
+                sx={{
+                  mr: 1,
+                  flexGrow: 1,
+                  fontFamily: "serif",
+                  fontWeight: 500,
+                  letterSpacing: ".1rem",
+                  color: "inherit",
+                  textDecoration: "none",
+                }}
+              >
+                Welcome {name}
+              </Typography>
+            )}
+          </Box>
+          <Box>{user ? logoutBtn : loginBtn}</Box>
+          <Box> {user ? null : regBtn}</Box>
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>

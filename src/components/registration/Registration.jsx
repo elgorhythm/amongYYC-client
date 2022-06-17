@@ -80,6 +80,7 @@ const Signup = () => {
         let collectionRef = collection(db, "users");
         let docRef = doc(collectionRef, user.uid);
         const userData = {
+          uid:user.uid,
           email: user.email,
           name: name,
           gender: gender,
