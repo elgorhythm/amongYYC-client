@@ -44,7 +44,6 @@ function AuthProvider(props) {
       if (userCred) {
         console.log('Logged in!!', userCred);
         setAuthError(null);
-        setUser(userCred.email)
         
       } else {
         console.log('Login failed!');

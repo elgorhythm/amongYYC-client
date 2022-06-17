@@ -73,11 +73,9 @@ const Signup = () => {
     }
   };
 
-  //Needs fixing. Not saving data to firestore on first click
-
   useEffect(() => {
     const createUserData = async () => {
-      console.log("useeffect being called");
+      console.log("UseEffect being called");
       try {
         let collectionRef = collection(db, "users");
         let docRef = doc(collectionRef, user.uid);

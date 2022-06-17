@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import {
   Grid,
   Paper,
@@ -34,24 +34,34 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [inputErr, setInputErr] = useState(null);
 
-  const signin = () => {
+  const signin = async () => {
     if (!email || !password) {
       setInputErr("All fields are required");
     } else {
       try {
         setInputErr(null);
-        loginFn(email, password);
-        if (user) {
-          navigate("/");
-          setEmail("");
-          setPassword("");
-        }
-        //  Add navigate("/") if user info recieved
+        await loginFn(email, password);
+        console.log("user is ", user)
+       
       } catch (ex) {
         console.log(ex);
       }
     }
   };
+
+  useEffect(() => {
+    const navToHome = async () => {
+      console.log("Useffect being called");
+      try {
+        navigate("/");
+      } catch (ex) {
+        console.log("NAVIGATION FAILURE", ex.message);
+      }
+    };
+    if (user) {
+      navToHome();
+    }
+  }, [user]);
 
   return (
     <Grid>
