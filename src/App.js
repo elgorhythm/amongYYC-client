@@ -15,6 +15,7 @@ import Game from "./components/appBarMenus/Game";
 import Sponsors from "./components/appBarMenus/Sponsors";
 import Account from "./components/component/Account";
 import UserProfile from "./pages/home/UserProfile";
+import AllUsersList from "./pages/home/AllUsersList";
 
 
 
@@ -27,6 +28,7 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/Profile" element={<UserProfile />} />
         <Route path="/Logout" element={<Logout />} />
+        <Route path="/UsersList" element={<AllUsersList />} />
         <Route path="/Dashboard" element={<Dashboard />} />
         <Route path='About' element={<About/>}/>
         <Route path='Events' element={<Events/>}/>
