@@ -14,6 +14,7 @@ import SignUp from "./pages/home/SignUp";
 import Game from "./components/appBarMenus/Game";
 import Sponsors from "./components/appBarMenus/Sponsors";
 import Account from "./components/component/Account";
+import UserProfile from "./pages/home/UserProfile";
 
 
 
@@ -24,7 +25,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/Profile" element={<Profile />} />
+        <Route path="/Profile" element={<UserProfile />} />
         <Route path="/Logout" element={<Logout />} />
         <Route path="/Dashboard" element={<Dashboard />} />
         <Route path='About' element={<About/>}/>
