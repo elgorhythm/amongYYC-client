@@ -14,6 +14,12 @@ import { FirebaseContext } from '../../providers/FirebaseProvider';
 
 function Profile() {
   const [name, setName] = useState(null);
+  const [email, setEmail] = useState(null);
+  const [age, setAge] = useState(null);
+  const [gender, setGender] = useState(null);
+  const [termsAccept, setTermsAccept] = useState(null);
+  
+
   const fbContext = useContext(FirebaseContext);
   const db = fbContext.db;
   const authContext = useContext(AuthContext);
@@ -28,6 +34,11 @@ function Profile() {
         if (docSnap.exists()) {
           // console.log("Document data:", docSnap.data());
           setName(docSnap.data().name);
+          setEmail(docSnap.data().email);
+          setAge(docSnap.data().age);
+          setGender(docSnap.data().gender);
+          setTermsAccept(docSnap.data().termsAccept);
+          
           // console.log("Name is ", docSnap.data().name);
         } else {
           console.log("No such document!");
@@ -42,6 +53,11 @@ function Profile() {
   return (
      <Box style={{paddingTop:20}}>
             <Typography>Name:         {name} </Typography>
+            <Typography>Email:         {email} </Typography>
+            <Typography>Age:         {age} </Typography>
+            <Typography>Gender:         {gender} </Typography>
+            <Typography>Terms Accepted:         {termsAccept} </Typography>
+            
             
      </Box>       
   )
