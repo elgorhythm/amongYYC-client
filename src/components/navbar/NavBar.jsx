@@ -28,7 +28,7 @@ import {
 import { useState, useEffect } from "react";
 
 const appBarMenus = ["Game", "Events", "Sponsors", "About"];
-const settings = ["Profile", "Account", "Dashboard", "Logout","UsersList"];
+const settings = ["Profile", "Account", "Dashboard", "Logout", "UsersList"];
 
 const ResponsiveAppBar = () => {
   let navigate = useNavigate();
@@ -92,12 +92,24 @@ const ResponsiveAppBar = () => {
     let path = `/`;
     navigate(path);
   };
+  const homeFromLogOut = () => {
+    let path = `/`;
+    navigate(path);
+  };
 
   const logoutBtn = (
     <Button
       sx={{ color: "inherit", bgcolor: "red", margin: 1, width: "90px" }}
       variant="contained"
-      onClick={() => logoutFn() && setName(null)}
+      onClick={() => {
+        try {
+          logoutFn();
+          homeFromLogOut();
+          setName(null);
+        } catch (ex) {
+          console.log(ex.message);
+        }
+      }}
     >
       LOGOUT
     </Button>
