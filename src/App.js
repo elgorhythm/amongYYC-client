@@ -16,6 +16,9 @@ import Sponsors from "./components/appBarMenus/Sponsors";
 import Account from "./components/component/Account";
 import UserProfile from "./pages/home/UserProfile";
 import AllUsersList from "./pages/home/AllUsersList";
+import Tasks from "./pages/home/Tasks";
+
+import AddTasks from "./pages/home/AddTasks";
 
 
 
@@ -27,6 +30,8 @@ function App() {
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/Profile" element={<UserProfile />} />
+        <Route path="/TaskManagement" element={<Tasks />} />
+        <Route path="/AddTask" element={<AddTasks />} />
         <Route path="/Logout" element={<Logout />} />
         <Route path="/UsersList" element={<AllUsersList />} />
         <Route path="/Dashboard" element={<Dashboard />} />
