@@ -42,6 +42,8 @@ function TaskManagement() {
           <Box style={{ paddingTop: 20 }} key={Task.DOC_ID}>
             <Typography>Title: {Task.title} </Typography>
             <Typography>Description: {Task.description} </Typography>
+            {/* <Typography>Completed: {Task.completed} </Typography>*/}
+            <Typography>Status: {Task.status} </Typography>  
             {/* <Typography>Age: {User.age} </Typography>
             <Typography>Gender: {User.gender} </Typography>
             <Typography>Terms Accepted: {User.termsAccept} </Typography>
