@@ -46,10 +46,10 @@ export default function AddTask() {
 
   return (
     <div>
-      <h4 style={"color:blue;text-align:center;"}>AddTask</h4>
+      <h4 style={{padding:20,textAlign:"center"}}>AddTask</h4>
       <div>
         <label htmlFor="title">Title</label>
-        <input
+        <input 
           name={title}
           value={title}
           onChange={(e) => setTitle(e.target.value)}
