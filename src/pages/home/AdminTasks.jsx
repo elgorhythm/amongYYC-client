@@ -15,11 +15,11 @@ const AdminTasks = () => {
       <FirebaseProvider>
         <AuthProvider>
           <NavBar />
-          <Stack direction="row" spacing={2} justifyContent="space-between">
-            <SideBar />
+          {/* <Stack direction="row" spacing={2} justifyContent="space-between"> */} 
+            {/* <SideBar /> */}
             <TasksAdmin/>
-            <RightBar />
-          </Stack>
+            {/* <RightBar /> */}
+          {/* </Stack> */}
         </AuthProvider>
       </FirebaseProvider>
     </Box>
