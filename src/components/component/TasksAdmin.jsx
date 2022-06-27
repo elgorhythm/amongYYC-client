@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Container, Navbar, Row, Col } from "react-bootstrap";
 import AddTask from "../admin/tasksTemplate/AddTask";
 import TasksList from "../admin/tasksTemplate/TasksList";
+import './TasksAdmin.css'
 
 
 
@@ -21,7 +22,7 @@ function TasksAdmin() {
         </Container>
       </Navbar> */}
 
-      <Container style={{ width: "400px" }}>
+      <Container style={{ width: "400px" ,padding:"30px" ,justifyContent:"center", }}>
         <Row>
           <Col>
             <AddTask id={taskId} setTaskId={setTaskId} />
