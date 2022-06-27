@@ -1,44 +1,43 @@
 import { addDoc, collection, doc, getDoc, updateDoc } from "firebase/firestore";
 import React, { useState, useEffect, useContext } from "react";
-import { Form, Alert, InputGroup, Button, ButtonGroup } from "react-bootstrap";
+import { Form, InputGroup, Button, ButtonGroup } from "react-bootstrap";
 import { FirebaseContext } from "../../../providers/FirebaseProvider";
-
+import Alert from "@mui/material/Alert";
 
 const AddTask = ({ id, setTaskId }) => {
-    const fbContext = useContext(FirebaseContext);
-    let db = fbContext.db;
-    let taskCollectionRef = collection(db, "tasks1");
-  
-    const addTasks = (newTask) => {
-        return addDoc(taskCollectionRef, newTask);
-      };
+  const fbContext = useContext(FirebaseContext);
+  let db = fbContext.db;
+  let taskCollectionRef = collection(db, "tasks1");
 
-      const updateTask = (id, updatedTask) => {
-        const taskDoc = doc(db, "tasks1", id);
-        return updateDoc(taskDoc, updatedTask);
-      };
+  const addTasks = (newTask) => {
+    return addDoc(taskCollectionRef, newTask);
+  };
 
+  const updateTask = (id, updatedTask) => {
+    const taskDoc = doc(db, "tasks1", id);
+    return updateDoc(taskDoc, updatedTask);
+  };
 
-      const getTask = (id) => {
-        const taskDoc = doc(db, "tasks1", id);
-        return getDoc(taskDoc);
-      };
- 
-
-
-
+  const getTask = (id) => {
+    const taskDoc = doc(db, "tasks1", id);
+    return getDoc(taskDoc);
+  };
 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [status, setStatus] = useState("Active");
   const [flag, setFlag] = useState(true);
-  const [message, setMessage] = useState({ error: false, msg: "" });
+  const [message, setMessage] = useState({ error: false, message: "" });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setMessage("");
     if (title === "" || description === "") {
-      setMessage({ error: true, msg: "All fields are mandatory!" });
+      setMessage({
+        error: true,
+        msg: "All fields are mandatory!",
+      });
+
       return;
     }
     const newTask = {
@@ -97,11 +96,12 @@ const AddTask = ({ id, setTaskId }) => {
           </Alert>
         )}
 
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit} >
           <Form.Group className="mb-3" controlId="formTaskTitle">
             <InputGroup>
-              <InputGroup.Text id="formTaskTitle">B</InputGroup.Text>
+              <InputGroup.Text id="formTaskTitle"></InputGroup.Text>
               <Form.Control
+                as="textarea" aria-label="With textarea"
                 type="text"
                 placeholder="Task Title"
                 value={title}
@@ -112,8 +112,8 @@ const AddTask = ({ id, setTaskId }) => {
 
           <Form.Group className="mb-3" controlId="formTaskAuthor">
             <InputGroup>
-              <InputGroup.Text id="formTaskAuthor">A</InputGroup.Text>
-              <Form.Control
+              <InputGroup.Text id="formTaskAuthor"></InputGroup.Text>
+              <Form.Control  as="textarea" aria-label="With textarea" 
                 type="text"
                 placeholder="Task Description"
                 value={description}
