@@ -1,3 +1,4 @@
+import { Box } from "@mui/material";
 import {
   addDoc,
   collection,
@@ -44,16 +45,17 @@ const TasksList = ({ getTaskId }) => {
  
   return (
     <>
-      <div className="mb-2">
+      <div>
+      
         <Button variant="dark edit" onClick={getTasks}>
           Refresh List
         </Button>
       </div>
 
       {/* <pre>{JSON.stringify(Tasks, undefined, 2)}</pre>} */}
-      <Table striped bordered hover size="sm">
+      <Table responsive ="lg">
         <thead>
-          <tr>
+          <tr style={ {backgroundColor: "gray" } }>
             <th>#</th>
             <th>Task Title</th>
             <th>Task Description</th>
@@ -65,10 +67,10 @@ const TasksList = ({ getTaskId }) => {
           {Tasks.map((doc, index) => {
             return (
               <tr key={doc.id}>
-                <td>{index + 1}</td>
-                <td>{doc.title}</td>
-                <td>{doc.description}</td>
-                <td>{doc.status}</td>
+                <td style={{ padding: "10px"}}>{index + 1}</td>
+                <td style={{ padding: "10px"}}>{doc.title}</td>
+                <td style={{ padding: "20px" }}>{doc.description}</td>
+                <td style={{ padding: "10px"}}>{doc.status}</td>
                 <td>
                   <Button
                     variant="secondary"
@@ -78,6 +80,7 @@ const TasksList = ({ getTaskId }) => {
                     Edit
                   </Button>
                   <Button
+                    
                     variant="danger"
                     className="delete"
                     onClick={(e) => deleteHandler(doc.id)}
