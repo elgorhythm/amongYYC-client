@@ -16,7 +16,7 @@ import Account from "./components/component/Account";
 import UserProfile from "./pages/home/UserProfile";
 import AllUsersList from "./pages/home/AllUsersList";
 import Tasks from "./pages/home/Tasks";
-
+import QrCode from './pages/home/QrCode';
 import AddTasks from "./pages/home/AddTasks";
 import AdminTasks from "./pages/home/AdminTasks";
 
@@ -36,6 +36,7 @@ function App() {
         <Route path="/Logout" element={<Logout />} />
         <Route path="/UsersList" element={<AllUsersList />} />
         <Route path="/Dashboard" element={<Dashboard />} />
+        <Route path='/QrCodeGenerator' element={<QrCode />} />
         <Route path='About' element={<About/>}/>
         <Route path='Events' element={<Events/>}/>
         <Route path='Game' element={<Game/>}/>
