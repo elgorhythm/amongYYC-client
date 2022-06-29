@@ -1,7 +1,7 @@
 
 
 import React, { useEffect, useState } from 'react'
-import './QrCodeGenerator.css'
+
 
 function QrCodeGenerator() {
  const[temp,setTemp]=useState('');
