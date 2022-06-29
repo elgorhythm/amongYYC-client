@@ -6,7 +6,6 @@ import Logout from "./components/component/Logout";
 import Profile from "./components/component/Profile";
 import Events from "./components/appBarMenus/Events"
 
-
 import Home from "./pages/home/Home";
 
 import SignIn from "./pages/home/SignIn";
