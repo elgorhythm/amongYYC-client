@@ -6,7 +6,6 @@ import NavBar from "../../components/navbar/NavBar";
 import RightBar from "../../components/rightBar/RightBar";
 import FirebaseProvider from "../../providers/FirebaseProvider";
 import AuthProvider from "../../providers/AuthProvider";
-import HomePage.jsx from "../../components/MainPage";
 
 const Home = () => {
   return (
@@ -19,7 +18,6 @@ const Home = () => {
             <GameFeed />
             <RightBar />
           </Stack>
-          <HomePage/>
         </AuthProvider>
       </FirebaseProvider>
     </Box>
