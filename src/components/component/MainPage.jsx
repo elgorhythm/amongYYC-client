@@ -1,7 +1,7 @@
 import { blue } from "@mui/material/colors";
 import React from "react";
 
-import Images from "../../images/minion.png";
+import image from "../../images/minion.png"; //Image of Minion Landing Page
 
 // import ReactPlaceholder from 'react-placeholder'; {/* Placeholder Code*/}
 // import "react-placeholder/lib/reactPlaceholder.css"; {/* Placeholder Code*/}
@@ -29,7 +29,7 @@ const MainPage = () => {
           </div>
         </p>
       </div>
-      <div></div>
+      <div>XXXX</div>
     </div>
   );
 };
