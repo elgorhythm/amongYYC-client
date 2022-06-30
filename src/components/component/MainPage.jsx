@@ -1,16 +1,20 @@
 import { blue } from '@mui/material/colors'
 import React from 'react'
 
+// import ReactPlaceholder from 'react-placeholder'; {/* Placeholder Code*/}
+// import "react-placeholder/lib/reactPlaceholder.css"; {/* Placeholder Code*/}
+
 const MainPage = () => {
   return (
-    <div style={{padding:20,
+    <div style={{padding:25,
     display:"flex",
     alignItems:"center",
     justifyContent:"center",
+    color: "white",
     }}>
 
     <div style={{backgroundColor:"blue",
-    height:"40vh"
+    height:"65vh"
     }}>
         <p>MainPage
             </p>

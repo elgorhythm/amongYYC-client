@@ -15,7 +15,10 @@ const Home = () => {
       <FirebaseProvider>
         <AuthProvider>
           <NavBar />
-          <Stack direction="row" spacing={2} justifyContent="space-between">
+          <Stack 
+          direction="row" 
+          spacing={2} 
+          justifyContent="space-between">
             <SideBar />
             <GameFeed />
             <RightBar />
