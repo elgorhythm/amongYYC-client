@@ -13,25 +13,26 @@ const MainPage = () => {
         padding: 25,
         display: "flex",
         width: "100%",
-        alignItems: "center",
-        justifyContent: "center",
+        alignItems: "left",
+        justifyContent: "left",
         borderTop: "20px solid rgba(0, 0, 0, .125)",
         borderBottom: "20px solid rgba(0, 0, 0, .125)",
         color: "white",
       }}
     >
-      <div style={{ backgroundColor: "gray", height: "65vh" }}>
+      <div style={{ backgroundColor: "black", height: "65vh" }}>
         <p>
           MainPage{" "}
           {/* <div className="bg-info clearfix">
             <button className="btn btn-secondary float-left">About</button>
             <button className="btn btn-secondary float-right">GamePlay</button>
           </div> */}
+
           <div
-          style={{borderColor:"black",}}>
+          style={{Color:"black",}}>
             About Among Us YYC Community Gaming App.<div></div>
             The Among Us YYC Community Gaming APP was developed to unite the
-            City of Calgary, community and the people of Calgary. <div></div> The games
+            City of Calgary, communities and the people of Calgary. <div></div> The games
             intent is to activate the space with people with community and
             events. Creating a fun way for interaction to engage people that
             guide them throughout the city.
