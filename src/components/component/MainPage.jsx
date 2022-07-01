@@ -12,17 +12,18 @@ const MainPage = () => {
       style={{
         padding: 25,
         display: "flex",
-        width: "100%",
+        width: "33%",
         alignItems: "left",
         justifyContent: "left",
         borderTop: "20px solid rgba(0, 0, 0, .125)",
         borderBottom: "20px solid rgba(0, 0, 0, .125)",
         color: "white",
+        text: "bold",
       }}
     >
       <div style={{ backgroundColor: "black", height: "65vh" }}>
         <p>
-          MainPage{" "}
+          About Among Us YYC{" "}
           {/* <div className="bg-info clearfix">
             <button className="btn btn-secondary float-left">About</button>
             <button className="btn btn-secondary float-right">GamePlay</button>

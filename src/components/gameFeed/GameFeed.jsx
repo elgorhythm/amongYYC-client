@@ -3,7 +3,7 @@ import React from 'react'
 
 function GameFeed() {
   return (
-    <Box flex={4} p={2}sx={{backgroundColor:"yellow"}}>GameFeed</Box>
+    <Box flex={4} p={2}sx={{backgroundColor:"lightgray"}}>GameFeed</Box>
   )
 }
 

@@ -17,7 +17,7 @@ const Home = () => {
           <NavBar />
           <Stack 
           direction="row" 
-          spacing={2} 
+          spacing={4} 
           justifyContent="space-between">
             <SideBar />
             <GameFeed />
