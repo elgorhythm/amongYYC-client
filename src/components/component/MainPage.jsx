@@ -23,9 +23,18 @@ const MainPage = () => {
       <div style={{ backgroundColor: "gray", height: "65vh" }}>
         <p>
           MainPage{" "}
-          <div className="bg-info clearfix">
+          {/* <div className="bg-info clearfix">
             <button className="btn btn-secondary float-left">About</button>
             <button className="btn btn-secondary float-right">GamePlay</button>
+          </div> */}
+          <div
+          style={{borderColor:"black",}}>
+            About Among Us YYC Community Gaming App.<div></div>
+            The Among Us YYC Community Gaming APP was developed to unite the
+            City of Calgary, community and the people of Calgary. <div></div> The games
+            intent is to activate the space with people with community and
+            events. Creating a fun way for interaction to engage people that
+            guide them throughout the city.
           </div>
         </p>
       </div>
