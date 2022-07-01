@@ -1,4 +1,4 @@
-import { blue } from "@mui/material/colors";
+import { Box, Stack, Typography } from '@mui/material';
 import React from "react";
 
 import image from "../../images/minion.png"; //Image of Minion Landing Page
@@ -23,11 +23,11 @@ const MainPage = () => {
     >
       <div style={{ backgroundColor: "black", height: "65vh" }}>
         <p>
-          About Among Us YYC{" "}
-          {/* <div className="bg-info clearfix">
+          Description About Among Us YYC{" "}
+          <div className="bg-info clearfix">
             <button className="btn btn-secondary float-left">About</button>
             <button className="btn btn-secondary float-right">GamePlay</button>
-          </div> */}
+          </div>
 
           <div
           style={{Color:"black",}}>
@@ -41,6 +41,7 @@ const MainPage = () => {
         </p>
       </div>
       <div>XXXX</div>
+      <div>111</div>
     </div>
   );
 };
