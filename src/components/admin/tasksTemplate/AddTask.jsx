@@ -3,11 +3,12 @@ import React, { useState, useEffect, useContext } from "react";
 import { Form, InputGroup, Button, ButtonGroup } from "react-bootstrap";
 import { FirebaseContext } from "../../../providers/FirebaseProvider";
 import Alert from "@mui/material/Alert";
+import { Box, Typography } from "@mui/material";
 
 const AddTask = ({ id, setTaskId }) => {
   const fbContext = useContext(FirebaseContext);
   let db = fbContext.db;
-  let taskCollectionRef = collection(db, "tasks1");
+  let taskCollectionRef = collection(db, "tasks");
 
   const addTasks = (newTask) => {
     return addDoc(taskCollectionRef, newTask);
@@ -101,12 +102,13 @@ const AddTask = ({ id, setTaskId }) => {
           </Alert>
         )}
 
-        <Form onSubmit={handleSubmit} >
+        <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3" controlId="formTaskTitle">
             <InputGroup>
               <InputGroup.Text id="formTaskTitle"></InputGroup.Text>
               <Form.Control
-                as="textarea" aria-label="With textarea"
+                as="textarea"
+                aria-label="With textarea"
                 type="text"
                 placeholder="Task Title"
                 value={title}
@@ -118,7 +120,9 @@ const AddTask = ({ id, setTaskId }) => {
           <Form.Group className="mb-3" controlId="formTaskAuthor">
             <InputGroup>
               <InputGroup.Text id="formTaskAuthor"></InputGroup.Text>
-              <Form.Control  as="textarea" aria-label="With textarea" 
+              <Form.Control
+                as="textarea"
+                aria-label="With textarea"
                 type="text"
                 placeholder="Task Description"
                 value={description}
@@ -126,6 +130,63 @@ const AddTask = ({ id, setTaskId }) => {
               />
             </InputGroup>
           </Form.Group>
+          <div display="flex" flex-direction="row">
+            <Typography> Task Location</Typography>
+            <Form.Group className="mb-3" controlId="formTaskAuthor">
+              <InputGroup>
+                <InputGroup.Text id="formTasklatitude"></InputGroup.Text>
+                <Form.Control
+                  as="textarea"
+          
+                  aria-label="With textarea"
+                  type="number"
+                  placeholder="Task Latitude"
+                  value={taskLatitude}
+                  onChange={(e) => setTaskLatitude(e.target.value)}
+                />
+              </InputGroup>
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formTaskAuthor">
+              <InputGroup>
+                <InputGroup.Text id="formTasklongitude"></InputGroup.Text>
+                <Form.Control
+                  as="textarea"
+                  aria-label="With textarea"
+                  type="number"
+                  placeholder="Task Longitude"
+                  value={taskLongitude}
+                  onChange={(e) => setTaskLongitude(e.target.value)}
+                />
+              </InputGroup>
+            </Form.Group>
+          </div>
+          <Form.Group className="mb-3" controlId="formTaskAuthor">
+            <InputGroup>
+              <InputGroup.Text id="formTasklongitude"></InputGroup.Text>
+              <Form.Control
+                as="textarea"
+                aria-label="With textarea"
+                type="text"
+                placeholder="Address"
+                value={taskAddress}
+                onChange={(e) => setTaskAddress(e.target.value)}
+              />
+            </InputGroup>
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formTaskAuthor">
+            <InputGroup>
+              <InputGroup.Text id="formTasklongitude"></InputGroup.Text>
+              <Form.Control
+                as="textarea"
+                aria-label="With textarea"
+                type="text"
+                placeholder="Task Score"
+                value={score}
+                onChange={(e) => setScore(e.target.value)}
+              />
+            </InputGroup>
+          </Form.Group>
+
           <ButtonGroup aria-label="Basic example" className="mb-3">
             <Button
               disabled={flag}
