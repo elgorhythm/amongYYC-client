@@ -30,6 +30,7 @@ const AddTask = ({ id, setTaskId }) => {
   const [taskLongitude, setTaskLongitude] = useState(null);
   const [active, setActive] = useState(true);
   const [taskAddress, setTaskAddress] = useState("");
+  const [score, setScore] = useState(0);
   const [flag, setFlag] = useState(true);
   const [message, setMessage] = useState({ error: false, message: "" });
 
@@ -45,12 +46,13 @@ const AddTask = ({ id, setTaskId }) => {
       return;
     }
     const newTask = {
-      title,
-      description,
-      active,
-      taskLatitude,
-      taskLongitude,
-      taskAddress
+      title: title,
+      description: description,
+      active: active,
+      taskLatitude: parseFloat(taskLatitude),
+      taskLongitude: parseFloat(taskLongitude),
+      taskAddress: taskAddress,
+      score: parseInt(score)
     };
     console.log(newTask);
 
@@ -131,15 +133,16 @@ const AddTask = ({ id, setTaskId }) => {
               />
             </InputGroup>
           </Form.Group>
-          <div display='flex' flex-direction='row'>
+          <div display="flex" flex-direction="row">
             <Typography> Task Location</Typography>
             <Form.Group className="mb-3" controlId="formTaskAuthor">
               <InputGroup>
                 <InputGroup.Text id="formTasklatitude"></InputGroup.Text>
                 <Form.Control
                   as="textarea"
+          
                   aria-label="With textarea"
-                  type='number'
+                  type="number"
                   placeholder="Task Latitude"
                   value={taskLatitude}
                   onChange={(e) => setTaskLatitude(e.target.value)}
@@ -153,27 +156,40 @@ const AddTask = ({ id, setTaskId }) => {
                   as="textarea"
                   aria-label="With textarea"
                   type="number"
-                  step='0.01'
                   placeholder="Task Longitude"
-                  value={parseInt(taskLongitude)}
+                  value={taskLongitude}
                   onChange={(e) => setTaskLongitude(e.target.value)}
                 />
               </InputGroup>
             </Form.Group>
           </div>
           <Form.Group className="mb-3" controlId="formTaskAuthor">
-              <InputGroup>
-                <InputGroup.Text id="formTasklongitude"></InputGroup.Text>
-                <Form.Control
-                  as="textarea"
-                  aria-label="With textarea"
-                  type="text"
-                  placeholder="Address"
-                  value={taskAddress}
-                  onChange={(e) => setTaskAddress(e.target.value)}
-                />
-              </InputGroup>
-            </Form.Group>
+            <InputGroup>
+              <InputGroup.Text id="formTasklongitude"></InputGroup.Text>
+              <Form.Control
+                as="textarea"
+                aria-label="With textarea"
+                type="text"
+                placeholder="Address"
+                value={taskAddress}
+                onChange={(e) => setTaskAddress(e.target.value)}
+              />
+            </InputGroup>
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formTaskAuthor">
+            <InputGroup>
+              <InputGroup.Text id="formTasklongitude"></InputGroup.Text>
+              <Form.Control
+                as="textarea"
+                aria-label="With textarea"
+                type="text"
+                placeholder="Task Score"
+                value={score}
+                onChange={(e) => setScore(e.target.value)}
+              />
+            </InputGroup>
+          </Form.Group>
+
           <ButtonGroup aria-label="Basic example" className="mb-3">
             <Button
               disabled={flag}
