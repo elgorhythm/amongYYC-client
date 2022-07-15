@@ -30,7 +30,7 @@ const AddTask = ({ id, setTaskId }) => {
   const [taskLongitude, setTaskLongitude] = useState(null);
   const [active, setActive] = useState(true);
   const [taskAddress, setTaskAddress] = useState("");
-  const [score, setScore] = useState(0);
+  const [score, setScore] = useState(100);
   const [flag, setFlag] = useState(true);
   const [message, setMessage] = useState({ error: false, message: "" });
 
