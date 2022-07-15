@@ -14,18 +14,23 @@ const AddTask = ({ id, setTaskId }) => {
   };
 
   const updateTask = (id, updatedTask) => {
-    const taskDoc = doc(db, "tasks1", id);
+    const taskDoc = doc(db, "tasks", id);
     return updateDoc(taskDoc, updatedTask);
   };
 
   const getTask = (id) => {
-    const taskDoc = doc(db, "tasks1", id);
+    const taskDoc = doc(db, "tasks", id);
     return getDoc(taskDoc);
   };
 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [status, setStatus] = useState("Active");
+  //const [type, setType] = useState("");
+  //const [date, setDate] = useState(Date.now());
+  //const [week, setWeek] = useState("");
+  //const [completed, setCompleted] = useState(false);
+  //const [active, setActive] = useState(true);
+  const [active, setActive] = useState(false);
   const [flag, setFlag] = useState(true);
   const [message, setMessage] = useState({ error: false, message: "" });
 
@@ -43,7 +48,7 @@ const AddTask = ({ id, setTaskId }) => {
     const newTask = {
       title,
       description,
-      status,
+      active,
     };
     console.log(newTask);
 
@@ -71,7 +76,7 @@ const AddTask = ({ id, setTaskId }) => {
       console.log("the record is :", docSnap.data());
       setTitle(docSnap.data().title);
       setDescription(docSnap.data().description);
-      setStatus(docSnap.data().status);
+      setActive(docSnap.data().active);
     } catch (err) {
       setMessage({ error: true, msg: err.message });
     }
@@ -126,7 +131,7 @@ const AddTask = ({ id, setTaskId }) => {
               disabled={flag}
               variant="success"
               onClick={(e) => {
-                setStatus("Active");
+                setActive(true);
                 setFlag(true);
               }}
             >
@@ -136,7 +141,7 @@ const AddTask = ({ id, setTaskId }) => {
               variant="danger"
               disabled={!flag}
               onClick={(e) => {
-                setStatus("Not Active");
+                setActive(false);
                 setFlag(false);
               }}
             >
