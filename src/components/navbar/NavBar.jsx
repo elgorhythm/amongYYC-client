@@ -28,7 +28,17 @@ import {
 import { useState, useEffect } from "react";
 
 const appBarMenus = ["Game", "Events", "Sponsors", "About"];
-const settings = ["Profile", "Account", "Dashboard", "Logout", "UsersList","TaskManagement",'AddTask','TasksAdmin','QrCodeGenerator'];
+const settings = [
+  "Profile",
+  "Account",
+  "Dashboard",
+  "Logout",
+  "UsersList",
+  "TaskManagement",
+  "AddTask",
+  "TasksAdmin",
+  "QrCodeGenerator",
+];
 
 const ResponsiveAppBar = () => {
   let navigate = useNavigate();

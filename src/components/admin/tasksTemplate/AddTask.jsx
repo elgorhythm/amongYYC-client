@@ -3,29 +3,35 @@ import React, { useState, useEffect, useContext } from "react";
 import { Form, InputGroup, Button, ButtonGroup } from "react-bootstrap";
 import { FirebaseContext } from "../../../providers/FirebaseProvider";
 import Alert from "@mui/material/Alert";
+import { Box, Typography } from "@mui/material";
 
 const AddTask = ({ id, setTaskId }) => {
   const fbContext = useContext(FirebaseContext);
   let db = fbContext.db;
-  let taskCollectionRef = collection(db, "tasks1");
+  let taskCollectionRef = collection(db, "tasks");
 
   const addTasks = (newTask) => {
     return addDoc(taskCollectionRef, newTask);
   };
 
   const updateTask = (id, updatedTask) => {
-    const taskDoc = doc(db, "tasks1", id);
+    const taskDoc = doc(db, "tasks", id);
     return updateDoc(taskDoc, updatedTask);
   };
 
   const getTask = (id) => {
-    const taskDoc = doc(db, "tasks1", id);
+    const taskDoc = doc(db, "tasks", id);
     return getDoc(taskDoc);
   };
 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [status, setStatus] = useState("Active");
+  //const [type, setType] = useState("");
+  //const [date, setDate] = useState(Date.now());
+  //const [week, setWeek] = useState("");
+  //const [completed, setCompleted] = useState(false);
+  //const [active, setActive] = useState(true);
+  const [active, setActive] = useState(false);
   const [flag, setFlag] = useState(true);
   const [message, setMessage] = useState({ error: false, message: "" });
 
@@ -43,7 +49,7 @@ const AddTask = ({ id, setTaskId }) => {
     const newTask = {
       title,
       description,
-      status,
+      active,
     };
     console.log(newTask);
 
@@ -71,7 +77,7 @@ const AddTask = ({ id, setTaskId }) => {
       console.log("the record is :", docSnap.data());
       setTitle(docSnap.data().title);
       setDescription(docSnap.data().description);
-      setStatus(docSnap.data().status);
+      setActive(docSnap.data().active);
     } catch (err) {
       setMessage({ error: true, msg: err.message });
     }
@@ -96,12 +102,13 @@ const AddTask = ({ id, setTaskId }) => {
           </Alert>
         )}
 
-        <Form onSubmit={handleSubmit} >
+        <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3" controlId="formTaskTitle">
             <InputGroup>
               <InputGroup.Text id="formTaskTitle"></InputGroup.Text>
               <Form.Control
-                as="textarea" aria-label="With textarea"
+                as="textarea"
+                aria-label="With textarea"
                 type="text"
                 placeholder="Task Title"
                 value={title}
@@ -113,7 +120,9 @@ const AddTask = ({ id, setTaskId }) => {
           <Form.Group className="mb-3" controlId="formTaskAuthor">
             <InputGroup>
               <InputGroup.Text id="formTaskAuthor"></InputGroup.Text>
-              <Form.Control  as="textarea" aria-label="With textarea" 
+              <Form.Control
+                as="textarea"
+                aria-label="With textarea"
                 type="text"
                 placeholder="Task Description"
                 value={description}
@@ -121,12 +130,69 @@ const AddTask = ({ id, setTaskId }) => {
               />
             </InputGroup>
           </Form.Group>
+          <div display="flex" flex-direction="row">
+            <Typography> Task Location</Typography>
+            <Form.Group className="mb-3" controlId="formTaskAuthor">
+              <InputGroup>
+                <InputGroup.Text id="formTasklatitude"></InputGroup.Text>
+                <Form.Control
+                  as="textarea"
+          
+                  aria-label="With textarea"
+                  type="number"
+                  placeholder="Task Latitude"
+                  value={taskLatitude}
+                  onChange={(e) => setTaskLatitude(e.target.value)}
+                />
+              </InputGroup>
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formTaskAuthor">
+              <InputGroup>
+                <InputGroup.Text id="formTasklongitude"></InputGroup.Text>
+                <Form.Control
+                  as="textarea"
+                  aria-label="With textarea"
+                  type="number"
+                  placeholder="Task Longitude"
+                  value={taskLongitude}
+                  onChange={(e) => setTaskLongitude(e.target.value)}
+                />
+              </InputGroup>
+            </Form.Group>
+          </div>
+          <Form.Group className="mb-3" controlId="formTaskAuthor">
+            <InputGroup>
+              <InputGroup.Text id="formTasklongitude"></InputGroup.Text>
+              <Form.Control
+                as="textarea"
+                aria-label="With textarea"
+                type="text"
+                placeholder="Address"
+                value={taskAddress}
+                onChange={(e) => setTaskAddress(e.target.value)}
+              />
+            </InputGroup>
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formTaskAuthor">
+            <InputGroup>
+              <InputGroup.Text id="formTasklongitude"></InputGroup.Text>
+              <Form.Control
+                as="textarea"
+                aria-label="With textarea"
+                type="text"
+                placeholder="Task Score"
+                value={score}
+                onChange={(e) => setScore(e.target.value)}
+              />
+            </InputGroup>
+          </Form.Group>
+
           <ButtonGroup aria-label="Basic example" className="mb-3">
             <Button
               disabled={flag}
               variant="success"
               onClick={(e) => {
-                setStatus("Active");
+                setActive(true);
                 setFlag(true);
               }}
             >
@@ -136,7 +202,7 @@ const AddTask = ({ id, setTaskId }) => {
               variant="danger"
               disabled={!flag}
               onClick={(e) => {
-                setStatus("Not Active");
+                setActive(false);
                 setFlag(false);
               }}
             >

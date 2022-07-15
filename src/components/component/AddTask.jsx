@@ -15,6 +15,8 @@ export default function AddTask() {
         title: taskTitle,
         description: taskDescription,
         completed:false,
+        location: [latitude , longitude],
+       
         created:Timestamp.now()
 
       });

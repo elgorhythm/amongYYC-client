@@ -6,8 +6,8 @@ import NavBar from "../../components/navbar/NavBar";
 import RightBar from "../../components/rightBar/RightBar";
 import FirebaseProvider from "../../providers/FirebaseProvider";
 import AuthProvider from "../../providers/AuthProvider";
-import HomePage from "../../components/component/MainPage"
-import Footer from "../../components/footer/Footer";
+
+
 
 const Home = () => {
   return (
@@ -23,8 +23,8 @@ const Home = () => {
             <GameFeed />
             <RightBar />
           </Stack>
-            <HomePage />
-          <Footer />
+        
+         
         </AuthProvider>
       </FirebaseProvider>
     </Box>

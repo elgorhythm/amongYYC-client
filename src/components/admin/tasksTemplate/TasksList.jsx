@@ -16,10 +16,10 @@ import TaskDataServices from "./TaskDataServices";
 const TasksList = ({ getTaskId }) => {
   const fbContext = useContext(FirebaseContext);
   let db = fbContext.db;
-  let taskCollectionRef = collection(db, "tasks1");
+  let taskCollectionRef = collection(db, "tasks");
 
   const deleteTask = (id) => {
-    const taskDoc = doc(db, "tasks1", id);
+    const taskDoc = doc(db, "tasks", id);
     return deleteDoc(taskDoc);
   };
 
@@ -59,8 +59,9 @@ const TasksList = ({ getTaskId }) => {
             <th>#</th>
             <th>Task Title</th>
             <th>Task Description</th>
-            <th>Status</th>
+            <th>Active</th>
             <th>Action</th>
+            <th>Type</th>
           </tr>
         </thead>
         <tbody>
@@ -70,7 +71,7 @@ const TasksList = ({ getTaskId }) => {
                 <td style={{ padding: "10px"}}>{index + 1}</td>
                 <td style={{ padding: "10px"}}>{doc.title}</td>
                 <td style={{ padding: "20px" }}>{doc.description}</td>
-                <td style={{ padding: "10px"}}>{doc.status}</td>
+                <td style={{ padding: "10px"}}>{doc.active}</td>
                 <td>
                   <Button
                     variant="secondary"
