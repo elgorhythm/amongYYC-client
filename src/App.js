@@ -19,8 +19,7 @@ import Tasks from "./pages/home/Tasks";
 import QrCode from './pages/home/QrCode';
 import AddTasks from "./pages/home/AddTasks";
 import AdminTasks from "./pages/home/AdminTasks";
-
-
+import LeaderBoardPage from "./pages/home/LeaderBoardPage";
 
 function App() {
   return (
@@ -35,6 +34,7 @@ function App() {
         <Route path="/TasksAdmin" element={<AdminTasks />} />
         <Route path="/Logout" element={<Logout />} />
         <Route path="/UsersList" element={<AllUsersList />} />
+        <Route path="/LeaderBoard" element={<LeaderBoardPage />} />
         <Route path="/Dashboard" element={<Dashboard />} />
         <Route path='/QrCodeGenerator' element={<QrCode />} />
         <Route path='About' element={<About/>}/>
