@@ -6,7 +6,7 @@ import NavBar from "../../components/navbar/NavBar";
 import RightBar from "../../components/rightBar/RightBar";
 import FirebaseProvider from "../../providers/FirebaseProvider";
 import AuthProvider from "../../providers/AuthProvider";
-import HomePage from "../../components/component/MainPage"
+import HomePage from "../../components/component/MainPage";
 import Footer from "../../components/footer/Footer";
 
 const Home = () => {
@@ -15,15 +15,13 @@ const Home = () => {
       <FirebaseProvider>
         <AuthProvider>
           <NavBar />
-          <Stack 
-          direction="row" 
-          spacing={4} 
-          justifyContent="space-between">
+          <Stack direction="row" spacing={4} justifyContent="space-between">
             <SideBar />
             <GameFeed />
             <RightBar />
           </Stack>
-            <HomePage />
+          <HomePage />
+          <Stack>333</Stack>
           <Footer />
         </AuthProvider>
       </FirebaseProvider>

@@ -21,7 +21,10 @@ const MainPage = () => {
         text: "bold",
       }}
     >
-      <div style={{ backgroundColor: "black", height: "65vh" }}>
+      <div style={{ backgroundColor: "black",
+                    height: "65vh",
+                    
+                     }}>
         <p>
           Description About Among Us YYC{" "}
           <div className="bg-info clearfix">
@@ -40,8 +43,9 @@ const MainPage = () => {
           </div>
         </p>
       </div>
-      <div>XXXX</div>
-      <div>111</div>
+      <div 
+      Box>111</div>
+      <div>222</div>
     </div>
   );
 };
