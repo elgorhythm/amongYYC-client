@@ -51,13 +51,13 @@ const AddTask = ({ id, setTaskId }) => {
       return;
     }
     const newTask = {
-      title,
-      description,
-      active,
-      score,
-      taskLatitude,
-      taskLongitude,
-      taskAddress,
+      title: title,
+      description: description,
+      active: active,
+      taskLatitude: parseFloat(taskLatitude),
+      taskLongitude: parseFloat(taskLongitude),
+      taskAddress: taskAddress,
+      score: parseInt(score)
       
 
     };
