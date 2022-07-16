@@ -19,6 +19,7 @@ import Tasks from "./pages/home/Tasks";
 import QrCode from './pages/home/QrCode';
 import AddTasks from "./pages/home/AddTasks";
 import AdminTasks from "./pages/home/AdminTasks";
+import Imposter from "./pages/home/Imposter";
 
 
 
@@ -41,7 +42,8 @@ function App() {
         <Route path='Events' element={<Events/>}/>
         <Route path='Game' element={<Game/>}/>
         <Route path='Sponsors' element={<Sponsors/>}/>
-        <Route path='Account' element={<Account/>}/>
+        <Route path='Imposter' element={<Imposter/>}/>
+       
       </Routes>
     </BrowserRouter>
   );

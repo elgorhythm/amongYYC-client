@@ -30,7 +30,7 @@ import { useState, useEffect } from "react";
 const appBarMenus = ["Game", "Events", "Sponsors", "About"];
 const settings = [
   "Profile",
-  "Account",
+  "Imposter",
   "Dashboard",
   "Logout",
   "UsersList",
