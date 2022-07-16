@@ -31,6 +31,10 @@ const AddTask = ({ id, setTaskId }) => {
   //const [week, setWeek] = useState("");
   //const [completed, setCompleted] = useState(false);
   //const [active, setActive] = useState(true);
+  const [score, setScore] = useState(100);
+  const [taskLatitude, setTaskLatitude] = useState(null);
+  const [taskLongitude, setTaskLongitude] = useState(null);
+  const [taskAddress, setTaskAddress] = useState("");
   const [active, setActive] = useState(false);
   const [flag, setFlag] = useState(true);
   const [message, setMessage] = useState({ error: false, message: "" });
@@ -50,6 +54,12 @@ const AddTask = ({ id, setTaskId }) => {
       title,
       description,
       active,
+      score,
+      taskLatitude,
+      taskLongitude,
+      taskAddress,
+      
+
     };
     console.log(newTask);
 
@@ -130,6 +140,21 @@ const AddTask = ({ id, setTaskId }) => {
               />
             </InputGroup>
           </Form.Group>
+          <Form.Group className="mb-3" controlId="formTaskAuthor">
+            <InputGroup>
+              <InputGroup.Text id="formTaskAuthor"></InputGroup.Text>
+              <Form.Control
+                as="textarea"
+                aria-label="With textarea"
+                type="text"
+                placeholder="Task Score"
+                value={score}
+                onChange={(e) => setScore(e.target.value)}
+              />
+            </InputGroup>
+          </Form.Group>
+
+
           <div display="flex" flex-direction="row">
             <Typography> Task Location</Typography>
             <Form.Group className="mb-3" controlId="formTaskAuthor">
