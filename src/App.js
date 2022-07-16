@@ -19,13 +19,7 @@ import Tasks from "./pages/home/Tasks";
 import QrCode from './pages/home/QrCode';
 import AddTasks from "./pages/home/AddTasks";
 import AdminTasks from "./pages/home/AdminTasks";
-<<<<<<< HEAD
 import LeaderBoardPage from "./pages/home/LeaderBoardPage";
-=======
-import Imposter from "./pages/home/Imposter";
-
-
->>>>>>> 7b6ed4332cfbe8c62a235641b52bb13000170044
 
 function App() {
   return (
