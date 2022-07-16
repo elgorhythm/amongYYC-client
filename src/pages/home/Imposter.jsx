@@ -1,42 +1,28 @@
 import { Box, Stack } from "@mui/material";
 import React from "react";
-import GameFeed from "../../components/gameFeed/GameFeed";
+
 import SideBar from "../../components/sideBar/SideBar";
 import NavBar from "../../components/navbar/NavBar";
 import RightBar from "../../components/rightBar/RightBar";
 import FirebaseProvider from "../../providers/FirebaseProvider";
 import AuthProvider from "../../providers/AuthProvider";
-<<<<<<< HEAD
-import HomePage from "../../components/component/MainPage";
-import Footer from "../../components/footer/Footer";
-=======
-
-
->>>>>>> 7b6ed4332cfbe8c62a235641b52bb13000170044
-
-const Home = () => {
+import Imposter from "../../components/component/Imposter"
+const UserProfile
+ = () => {
   return (
     <Box>
       <FirebaseProvider>
         <AuthProvider>
           <NavBar />
-          <Stack direction="row" spacing={4} justifyContent="space-between">
+          <Stack direction="row" spacing={2} justifyContent="space-between">
             <SideBar />
-            <GameFeed />
+            <Imposter />
             <RightBar />
           </Stack>
-<<<<<<< HEAD
-          <HomePage />
-          <Stack>333</Stack>
-          <Footer />
-=======
-        
-         
->>>>>>> 7b6ed4332cfbe8c62a235641b52bb13000170044
         </AuthProvider>
       </FirebaseProvider>
     </Box>
   );
 };
 
-export default Home;
+export default UserProfile;
