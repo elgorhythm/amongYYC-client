@@ -59,9 +59,13 @@ const TasksList = ({ getTaskId }) => {
             <th>#</th>
             <th>Task Title</th>
             <th>Task Description</th>
-            <th>Active</th>
-            <th>Action</th>
             <th>Type</th>
+            <th>Active</th>
+            <th>Score</th>
+            <th>Latitude</th>
+            <th>Longitude</th>
+            <th>Address</th>
+            
           </tr>
         </thead>
         <tbody>
@@ -71,7 +75,14 @@ const TasksList = ({ getTaskId }) => {
                 <td style={{ padding: "10px"}}>{index + 1}</td>
                 <td style={{ padding: "10px"}}>{doc.title}</td>
                 <td style={{ padding: "20px" }}>{doc.description}</td>
+                <td style={{ padding: "10px"}}>{doc.type}</td>
                 <td style={{ padding: "10px"}}>{doc.active}</td>
+                <td style={{ padding: "10px"}}>{doc.score}</td>
+                <td style={{ padding: "10px"}}>{doc.taskLatitude}</td>
+                <td style={{ padding: "10px"}}>{doc.taskLongitude}</td>
+                <td style={{ padding: "10px"}}>{doc.taskAddress}</td>
+
+                              
                 <td>
                   <Button
                     variant="secondary"
