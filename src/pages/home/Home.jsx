@@ -25,14 +25,9 @@ const Home = () => {
             <GameFeed />
             <RightBar />
           </Stack>
-<<<<<<< HEAD
           <HomePage />
           <Stack>333</Stack>
           <Footer />
-=======
-        
-         
->>>>>>> 7b6ed4332cfbe8c62a235641b52bb13000170044
         </AuthProvider>
       </FirebaseProvider>
     </Box>
