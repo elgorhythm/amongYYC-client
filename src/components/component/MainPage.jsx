@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { Box, Stack, Typography } from '@mui/material';
 import React from "react";
 
@@ -52,5 +51,3 @@ const MainPage = () => {
 };
 
 export default MainPage;
-=======
->>>>>>> 7b6ed4332cfbe8c62a235641b52bb13000170044

@@ -20,6 +20,7 @@ import QrCode from './pages/home/QrCode';
 import AddTasks from "./pages/home/AddTasks";
 import AdminTasks from "./pages/home/AdminTasks";
 import LeaderBoardPage from "./pages/home/LeaderBoardPage";
+import Imposter from "./pages/home/Imposter";
 
 function App() {
   return (
