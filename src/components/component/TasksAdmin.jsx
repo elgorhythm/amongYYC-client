@@ -22,7 +22,15 @@ function TasksAdmin() {
         </Container>
       </Navbar> */}
 
-      <Container style={{ width: "400px" ,padding:"30px" ,justifyContent:"center", }}>
+      <Container style={{ width: "400px" ,padding:"30px" ,justifyContent:"center",
+      alignItems:"center",
+      display:"flex",
+      flexDirection:"column",
+      justifyContent:"center",
+      alignItems:"center",
+     
+    
+    }}>
         <Row>
           <Col>
             <AddTask id={taskId} setTaskId={setTaskId} />

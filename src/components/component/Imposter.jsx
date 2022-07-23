@@ -50,51 +50,57 @@ const Imposter = () => {
 
   return (
     <Box>
-      <h4 style={{ padding: 20, textAlign: "center" }}>Add Imposter</h4>
+      <h4 style={{ padding: 20, textAlign: "center",
+      
+       
+      
+
+    
+    }}>Trickster</h4>
       <div> 
-        <label htmlFor="imposterId">Imposter Id</label>
+        <label htmlFor="imposterId">Trickster Id</label>
         <input
           style={{ width: "100%", marginBottom: 10, marginTop: 10 ,padding:10,borderRadius:5}}
           name={imposterId}
           value={imposterId}
           onChange={(e) => setImposterId(e.target.value)}
         />
-        <label htmlFor="imposterName">Imposter Name</label>
+        <label htmlFor="imposterName">Trickster Name</label>
         <input
           style={{ width: "100%", marginBottom: 10, marginTop: 10 ,padding:10,borderRadius:5}}
           name={imposterName}
           value={imposterName}
           onChange={(e) => setImposterName(e.target.value)}
         />
-        <label htmlFor="imposterDescription">Imposter Description</label>
+        <label htmlFor="imposterDescription">Trickster Description</label>
         <input
           style={{ width: "100%", marginBottom: 10, marginTop: 10 ,padding:10,borderRadius:5}}
           name={imposterDescription}
           value={imposterDescription}
           onChange={(e) => setImposterDescription(e.target.value)}
         />
-        <label htmlFor="imposterHint">Imposter Hint</label>
+        <label htmlFor="imposterHint">Trickster Hint</label>
         <input
           style={{ width: "100%", marginBottom: 10, marginTop: 10 ,padding:10,borderRadius:5}}
           name={imposterHint}
           value={imposterHint}
           onChange={(e) => setImposterHint(e.target.value)}
         />
-        <label htmlFor="imposterImage">Imposter Image</label>
+        <label htmlFor="imposterImage">Trickster Image</label>
         <input
           style={{ width: "100%", marginBottom: 10, marginTop: 10 ,padding:10,borderRadius:5}}
           name={imposterImage}
           value={imposterImage}
           onChange={(e) => setImposterImage(e.target.value)}
         />
-        <label htmlFor="imposterActive">Imposter Active</label>
+        <label htmlFor="imposterActive">Trickster Active</label>
         <input
           style={{ width: "100%", marginBottom: 10, marginTop: 10 ,padding:10,borderRadius:5}}
           name={imposterActive}
           value={imposterActive}
           onChange={(e) => setImposterActive(e.target.value)}
         />
-        <label htmlFor="imposterActiveTimes">Imposter Active Times</label>
+        <label htmlFor="imposterActiveTimes">Trickster Active Times</label>
         <input
 
           style={{ width: "100%", marginBottom: 10, marginTop: 10 ,padding:10,borderRadius:5}}
@@ -103,7 +109,30 @@ const Imposter = () => {
           onChange={(e) => setImposterActiveTimes(e.target.value)}
         />
       </div>
-      <button onClick={addImposter}>Add Imposter</button>
+      <button style={{ marginTop: 10 ,
+        padding:10,
+        borderRadius:5,
+        backgroundColor:"#00bcd4",
+        color:"white"
+      }} 
+      
+      onClick={addImposter}>Add 
+      </button>
+      <button style={{ marginTop: 10 ,
+        padding:10,
+        borderRadius:5,
+        backgroundColor:"#00bcd4",
+        color:"white"
+      }}
+      >Edit</button>
+      <button style={{ marginTop: 10 ,
+        padding:10,
+        borderRadius:5,
+        backgroundColor:"Red",
+       
+      }}
+      
+      >Delete</button>
     </Box>
   );
 }
