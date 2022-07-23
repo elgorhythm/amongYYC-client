@@ -17,13 +17,13 @@ const Home = () => {
         <AuthProvider>
           <NavBar />
           <Stack direction="row" spacing={4} justifyContent="space-between">
-            <SideBar />
-            <GameFeed />
-            <RightBar />
-          </Stack>
-          <HomePage />
+            {/* <SideBar /> */}
+            {/* <GameFeed /> */}
+            {/* <RightBar /> */}
+           </Stack>
+          {/* <HomePage />
           <Stack>333</Stack>
-          <Footer />
+          <Footer /> */} 
         </AuthProvider>
       </FirebaseProvider>
     </Box>
