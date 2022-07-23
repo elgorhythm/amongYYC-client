@@ -27,17 +27,16 @@ import {
 } from "firebase/firestore";
 import { useState, useEffect } from "react";
 
-const appBarMenus = ["Game", "Events", "Sponsors", "About"];
+const appBarMenus = [];
 const settings = [
   "Profile",
   "Imposter",
-  "Dashboard",
-  "Logout",
+  
+  
   "UsersList",
-  "TaskManagement",
-  "AddTask",
-  "TasksAdmin",
-  "QrCodeGenerator",
+ 
+   "TasksAdmin",
+ 
 ];
 
 const ResponsiveAppBar = () => {
