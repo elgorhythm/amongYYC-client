@@ -6,7 +6,7 @@ import NavBar from "../../components/navbar/NavBar";
 import RightBar from "../../components/rightBar/RightBar";
 import FirebaseProvider from "../../providers/FirebaseProvider";
 import AuthProvider from "../../providers/AuthProvider";
-import Imposter from "../../components/component/Imposter"
+import Trickster from "../../components/component/Trickster"
 const UserProfile
  = () => {
   return (
@@ -16,7 +16,7 @@ const UserProfile
           <NavBar />
           <Stack direction="row" spacing={2} justifyContent="space-between">
             <SideBar /> 
-            <Imposter />
+            <Trickster/>
             {/* <RightBar /> */}
           </Stack>
         </AuthProvider>

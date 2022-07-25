@@ -30,7 +30,7 @@ import { useState, useEffect } from "react";
 const appBarMenus = [];
 const settings = [
   "Profile",
-  "Imposter",
+  "Trickster",
   
   
   "UsersList",

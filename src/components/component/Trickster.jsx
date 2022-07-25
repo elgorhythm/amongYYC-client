@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useContext } from "react";
 import { FirebaseContext } from "../../providers/FirebaseProvider";
 import { Box } from "@mui/material";
-const Imposter = () => {
+const Trickster = () => {
   const fbContext = useContext(FirebaseContext);
   const db = fbContext.db;
 
@@ -136,7 +136,7 @@ const Imposter = () => {
     </Box>
   );
 }
-export default Imposter;
+export default Trickster;
 
 
 
