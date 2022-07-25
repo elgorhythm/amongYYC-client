@@ -20,7 +20,7 @@ import QrCode from './pages/home/QrCode';
 import AddTasks from "./pages/home/AddTasks";
 import AdminTasks from "./pages/home/AdminTasks";
 import LeaderBoardPage from "./pages/home/LeaderBoardPage";
-import Imposter from "./pages/home/Imposter";
+import GameTrickster from "./pages/home/GameTrickster";
 
 function App() {
   return (
@@ -34,6 +34,7 @@ function App() {
         <Route path="/AddTask" element={<AddTasks />} />
         <Route path="/TasksAdmin" element={<AdminTasks />} />
         <Route path="/Logout" element={<Logout />} />
+        <Route path="/Trickster" element={<GameTrickster />} />
         <Route path="/UsersList" element={<AllUsersList />} />
         <Route path="/LeaderBoard" element={<LeaderBoardPage />} />
         <Route path="/Dashboard" element={<Dashboard />} />
@@ -42,7 +43,7 @@ function App() {
         <Route path='Events' element={<Events/>}/>
         <Route path='Game' element={<Game/>}/>
         <Route path='Sponsors' element={<Sponsors/>}/>
-        <Route path='Imposter' element={<Imposter/>}/>
+       
        
       </Routes>
     </BrowserRouter>

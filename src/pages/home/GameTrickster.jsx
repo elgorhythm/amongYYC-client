@@ -6,8 +6,9 @@ import NavBar from "../../components/navbar/NavBar";
 import RightBar from "../../components/rightBar/RightBar";
 import FirebaseProvider from "../../providers/FirebaseProvider";
 import AuthProvider from "../../providers/AuthProvider";
-import Trickster from "../../components/component/Trickster"
-const UserProfile
+import Trickster from "../../components/component/Trickster";
+
+const GameTrickster
  = () => {
   return (
     <Box>
@@ -25,4 +26,4 @@ const UserProfile
   );
 };
 
-export default UserProfile;
+export default GameTrickster;
