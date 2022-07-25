@@ -15,7 +15,7 @@ const UserProfile
         <AuthProvider>
           <NavBar />
           <Stack direction="row" spacing={2} justifyContent="space-between">
-            {/* <SideBar /> */}
+             <SideBar /> 
             <Profile />
             {/* <RightBar /> */}
           </Stack>

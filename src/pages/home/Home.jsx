@@ -17,7 +17,7 @@ const Home = () => {
         <AuthProvider>
           <NavBar />
           <Stack direction="row" spacing={4} justifyContent="space-between">
-            {/* <SideBar /> */}
+             <SideBar /> 
             {/* <GameFeed /> */}
             {/* <RightBar /> */}
            </Stack>
