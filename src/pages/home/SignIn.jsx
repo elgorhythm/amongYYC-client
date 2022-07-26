@@ -13,11 +13,11 @@ function SignIn() {
       <FirebaseProvider>
         <AuthProvider>
           <NavBar />
-          <Stack direction="row" spacing={2} justifyContent="space-between">
-            <SideBar />
+          {/* <Stack direction="row" spacing={1} justifyContent="space-between"> */}
+            {/* <SideBar /> */}
             <Login />
-            <RightBar />
-          </Stack>
+           {/* // <RightBar /> */}
+          {/* </Stack> */}
         </AuthProvider>
       </FirebaseProvider>
     </Box>
