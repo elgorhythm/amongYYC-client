@@ -26,9 +26,11 @@ import {
   onSnapshot,
 } from "firebase/firestore";
 import { useState, useEffect } from "react";
+import logo from "../../../src/assets/fonts/logo.png"
 
 const appBarMenus = [];
 const settings = ["Profile", "Trickster", "UsersList", "TasksAdmin"];
+
 
 const ResponsiveAppBar = () => {
   let navigate = useNavigate();
@@ -77,7 +79,12 @@ const ResponsiveAppBar = () => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-  const appBarStyle = { backgroundColor: "#797d80" };
+  const appBarStyle = { backgroundColor: "#797d80" ,
+    color: "white",
+    fontFamily: "Roboto",
+    fontSize: "1.5rem",
+    fontWeight: "bold",
+    };
 
   const logButChange = () => {
     let path = `/signin`;
@@ -137,9 +144,9 @@ const ResponsiveAppBar = () => {
 
   return (
     <AppBar position="static" style={appBarStyle}>
-      <Container maxWidth="xl">
+      <Container maxWidth="x2">
         <Toolbar disableGutters>
-          <AdbIcon
+          {/* <AdbIcon
             sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}
             onClick={handleAbdIcon}
           />
@@ -158,8 +165,13 @@ const ResponsiveAppBar = () => {
               textDecoration: "none",
             }}
           >
-            Among YYC1
-          </Typography>
+            Among YYC
+          </Typography> */}
+         <Typography
+            variant="h6"
+            >
+            <img src={logo} alt="logo" style={{width: "100px"}}/>
+            </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
