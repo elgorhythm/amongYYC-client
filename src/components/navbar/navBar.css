@@ -1,31 +1,29 @@
-.navBar{                            /* navigation bar*/
-    height: 60px;
-    background-color: #776d6d;
-    display: flex;
-    justify-content: center;
+.navBar {
+  /* navigation bar*/
+  height: 60px;
+  background-color: #776d6d;
+  display: flex;
+  justify-content: center;
 }
 
-.navContainer{
+.navContainer {
   width: 100%;
-  max-width: 1024px;   /* For small screen devices it will display good*/
-color: white;
-display: flex;
+  max-width: 1024px; /* For small screen devices it will display good*/
+  color: white;
+  display: flex;
 
-align-items: center;
-justify-content: space-between;
+  align-items: center;
+  justify-content: space-between;
 }
 
-
-.logo{
-    font-weight: 600;
-    
+.logo {
+  font-weight: 600;
 }
 
-.navButton{
-    margin-left: 20px;
-    border:none;
-    padding: 5px 10px;
-    cursor: pointer;
-    color:#d4bbc7
-
+.navButton {
+  margin-left: 20px;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  color: #d4bbc7;
 }

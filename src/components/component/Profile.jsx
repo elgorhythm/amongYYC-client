@@ -66,22 +66,25 @@ function Profile() {
 
 
   return (
-     <Box style={{paddingTop:20,
+     <Box style={{
     paddingLeft:20,
     paddingRight:20,
     paddingBottom:20,
     backgroundColor:"#f5f5f5",
-    borderRadius:10,
-    boxShadow: "0px 0px 10px #000000",
-    marginTop:20,
+    // borderRadius:10,
+    // boxShadow: "0px 0px 10px #000000",
+    
     marginBottom:20,
     marginLeft:20,
     marginRight:20,
-    width: "100%",
-    height: "100%",
-    display: "flex",
-    flexDirection: "column",
+    maxWidth: 300,
+    // width: "100%",
+    // height: "100%",
+    // display: "flex",
+    // flexDirection: "column",
     justifyContent: "center",
+    alignSelf: 'center',
+    alignContent: 'center'
  
 
     

@@ -12,21 +12,21 @@ import Footer from "../../components/footer/Footer";
 
 const Home = () => {
   return (
-    <Box>
-      <FirebaseProvider>
-        <AuthProvider>
+    <FirebaseProvider>
+      <AuthProvider>
+        <Box >
           <NavBar />
-          <Stack direction="row" spacing={2} justifyContent="space-between">
-             <SideBar /> 
+          <Stack direction="row" spacing={2} >
+            <SideBar />
             {/* <GameFeed /> */}
             {/* <RightBar /> */}
-           </Stack>
+          </Stack>
           {/* <HomePage />
           <Stack>333</Stack>
-          <Footer /> */} 
-        </AuthProvider>
-      </FirebaseProvider>
-    </Box>
+          <Footer /> */}
+        </Box>
+      </AuthProvider>
+    </FirebaseProvider>
   );
 };
 

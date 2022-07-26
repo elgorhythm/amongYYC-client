@@ -29,7 +29,7 @@ import { useState, useEffect } from "react";
 import logo from "../../../src/assets/fonts/logo.png"
 
 const appBarMenus = [];
-const settings = ["Profile", "Trickster", "UsersList", "TasksAdmin"];
+const settings = ["Profile","UsersList", "TasksAdmin","Trickster"];
 
 
 const ResponsiveAppBar = () => {
@@ -79,7 +79,7 @@ const ResponsiveAppBar = () => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-  const appBarStyle = { backgroundColor: "#797d80" ,
+  const appBarStyle = { backgroundColor: "#394048" ,
     color: "white",
     fontFamily: "Roboto",
     fontSize: "1.5rem",
@@ -106,8 +106,8 @@ const ResponsiveAppBar = () => {
 
   const logoutBtn = (
     <Button
-      sx={{  color: "#e1e4e6", bgcolor: "#e1e4e6", margin: 1, width: "90px" }}
-      variant="contained"
+    sx={{ color: "skyblue", margin: 0, width: "90px" ,textDecoration:"underline",marginRight:1}}
+      variant="text"
       onClick={() => {
         try {
           logoutFn();
@@ -124,8 +124,8 @@ const ResponsiveAppBar = () => {
 
   const loginBtn = (
     <Button
-      sx={{ color: "Black", bgcolor: "lightGrey", margin: 1, width: "90px" }}
-      variant="contained"
+      sx={{ color: "skyblue", margin:0, width: "90px" ,textDecoration:"underline"}}
+      variant="text"
       onClick={logButChange}
     >
       LOGIN
@@ -134,8 +134,8 @@ const ResponsiveAppBar = () => {
 
   const regBtn = (
     <Button
-      variant="contained"
-      sx={{ color: "Black", bgcolor: "lightGrey", margin: 1, width: "90px" }}
+      variant="text"
+      sx={{ color: "skyblue", margin: 0, width: "90px" ,textDecoration:"underline",marginRight:1}}
       onClick={RegButChange}
     >
       Register

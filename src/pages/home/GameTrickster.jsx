@@ -15,9 +15,16 @@ const GameTrickster
       <FirebaseProvider>
         <AuthProvider>
           <NavBar />
-          <Stack direction="row" spacing={2} justifyContent="space-between">
+          <Stack direction="row" spacing={2} >
             <SideBar /> 
+            <div 
+              style={{
+              alignItems: "center",
+               margin: "auto",
+            
+               }} >
             <Trickster/>
+            </div>
             {/* <RightBar /> */}
           </Stack>
         </AuthProvider>

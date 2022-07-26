@@ -31,7 +31,7 @@ const AddTask = ({ id, setTaskId }) => {
   //const [week, setWeek] = useState("");
   //const [completed, setCompleted] = useState(false);
   //const [active, setActive] = useState(true);
-  const [score, setScore] = useState(100);
+  const [score, setScore] = useState();
   const [taskLatitude, setTaskLatitude] = useState(null);
   const [taskLongitude, setTaskLongitude] = useState(null);
   const [taskAddress, setTaskAddress] = useState("");
@@ -54,12 +54,11 @@ const AddTask = ({ id, setTaskId }) => {
       title: title,
       description: description,
       active: active,
+      type: taskType,
       taskLatitude: parseFloat(taskLatitude),
       taskLongitude: parseFloat(taskLongitude),
-      taskAddress: taskAddress,
-      score: parseInt(score)
-      
-
+      address: taskAddress,
+      score: parseInt(score),
     };
     console.log(newTask);
 
@@ -88,6 +87,11 @@ const AddTask = ({ id, setTaskId }) => {
       setTitle(docSnap.data().title);
       setDescription(docSnap.data().description);
       setActive(docSnap.data().active);
+      setTaskType(docSnap.data().type);
+      setTaskLatitude(docSnap.data().taskLatitude);
+      setTaskLongitude(docSnap.data().taskLongitude);
+      setTaskAddress(docSnap.data().address);
+      setScore(docSnap.data().score);
     } catch (err) {
       setMessage({ error: true, msg: err.message });
     }
@@ -99,6 +103,9 @@ const AddTask = ({ id, setTaskId }) => {
       editHandler();
     }
   }, [id]);
+
+  const [taskType, setTaskType] = useState("");
+
   return (
     <>
       <div className="p-4 box">
@@ -140,20 +147,61 @@ const AddTask = ({ id, setTaskId }) => {
               />
             </InputGroup>
           </Form.Group>
-          <Form.Group className="mb-3" controlId="formTaskAuthor">
-            <InputGroup>
-              <InputGroup.Text id="formTaskAuthor"></InputGroup.Text>
-              <Form.Control
-                as="textarea"
-                aria-label="With textarea"
-                type="text"
-                placeholder="Task Score"
-                value={score}
-                onChange={(e) => setScore(e.target.value)}
-              />
-            </InputGroup>
-          </Form.Group>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
 
+              alignItems: "center",
+              margin: "5px",
+              padding: "5px",
+            }}
+          >
+            <text
+              style={{
+                fontSize: "15px",
+                fontWeight: "bold",
+                marginRight: "10px",
+              }}
+            >
+              {" "}
+              Select Task type
+            </text>
+            <div class="form-check">
+              <input
+                value={"qrScan"}
+                onChange={(e) => {
+                  setTaskType(e.target.value);
+                }}
+                class="form-check-input"
+                type="radio"
+                name="flexRadioDefault"
+                id="flexRadioDefault1"
+              />
+              <label class="form-check-label" for="flexRadioDefault1">
+                {" "}
+                Scan Qr code{" "}
+              </label>
+            </div>
+
+            <div class="form-check">
+              <input
+                value={"imgUpload"}
+                onChange={(e) => {
+                  setTaskType(e.target.value);
+                }}
+                class="form-check-input"
+                type="radio"
+                name="flexRadioDefault"
+                id="flexRadioDefault2"
+              />
+              <label class="form-check-label" for="flexRadioDefault2">
+                {" "}
+                Upload Photo{" "}
+              </label>
+            </div>
+          </div>
+          <Form.Group className="mb-3" controlId="formTaskAuthor"></Form.Group>
 
           <div display="flex" flex-direction="row">
             <Typography> Task Location</Typography>
@@ -162,7 +210,6 @@ const AddTask = ({ id, setTaskId }) => {
                 <InputGroup.Text id="formTasklatitude"></InputGroup.Text>
                 <Form.Control
                   as="textarea"
-          
                   aria-label="With textarea"
                   type="number"
                   placeholder="Task Latitude"

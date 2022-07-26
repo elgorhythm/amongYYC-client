@@ -21,8 +21,11 @@ const Login = () => {
     width: 280,
     margin: "20px auto",
   };
-  const avatarStyle = { backgroundColor: "#8c8482" };
-  const btnstyle = { margin: "8px 0", backgroundColor: "#8c8482" };
+  const avatarStyle = { backgroundColor: "#394048" };
+  const btnstyle = { margin: "8px 0", backgroundColor: "#394048" 
+  ,borderRadius: "10px"};
+
+
   const navigate = useNavigate();
 
   const authContext = useContext(AuthContext);
@@ -70,13 +73,20 @@ const Login = () => {
           <Avatar style={avatarStyle}>
             <LockIcon />
           </Avatar>
-          <h2>Sign In</h2>
+          <h2 
+          style={{
+      
+            fontSize: "20px",
+          }
+          }
+          >Sign In</h2>
         </Grid>
         <TextField
           label="Username"
           placeholder="Enter username"
           fullWidth
           required
+          style={{marginTop: 5, marginBottom: 10}}
           onChange={(event) => {
             setEmail(event.target.value);
           }}
@@ -87,6 +97,7 @@ const Login = () => {
           type="password"
           fullWidth
           required
+          style={{marginTop: "10px" , marginBottom: "10px"}}
           onChange={(event) => {
             setPassword(event.target.value);
           }}
@@ -110,7 +121,12 @@ const Login = () => {
         >
           Sign in
         </Button>
-        <Typography>
+        <Typography 
+        style={{
+          marginTop: "10px",
+          marginBottom: "10px"}}
+        
+        >
           <Link href="#">Forgot password ?</Link>
         </Typography>
         <Typography>

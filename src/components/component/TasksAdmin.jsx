@@ -2,10 +2,7 @@ import { useState } from "react";
 import { Container, Navbar, Row, Col } from "react-bootstrap";
 import AddTask from "../admin/tasksTemplate/AddTask";
 import TasksList from "../admin/tasksTemplate/TasksList";
-import './TasksAdmin.css'
-
-
-
+import "./TasksAdmin.css";
 
 function TasksAdmin() {
   const [taskId, setTaskId] = useState("");
@@ -22,30 +19,38 @@ function TasksAdmin() {
         </Container>
       </Navbar> */}
 
-      <Container style={{ width: "400px" ,padding:"30px" ,justifyContent:"center",
-      alignItems:"center",
-      display:"flex",
-      flexDirection:"column",
-      justifyContent:"center",
-      alignItems:"center",
-     
-    
-    }}>
-        <Row>
-          <Col>
-            <AddTask id={taskId} setTaskId={setTaskId} />
-          </Col>
-        </Row>
-      </Container>
-      <Container>
-        <Row>
-          <Col>
-            <TasksList getTaskId={getTaskIdHandler} />
-          </Col>
-        </Row>
+      <Container
+        style={{
+          width: "100%",
+
+          justifyContent: "center",
+          // alignItems: "center",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+
+          padding: 20,
+        }}
+      >
+        <AddTask
+          margin="auto"
+          style={{
+            margin: "auto",
+            marginLeft: 200,
+          }}
+          id={taskId}
+          setTaskId={setTaskId}
+        />
+
+        <TasksList
+          style={{
+            width: "100%",
+          }}
+          getTaskId={getTaskIdHandler}
+        />
       </Container>
     </>
   );
 }
 
-export default TasksAdmin
+export default TasksAdmin;

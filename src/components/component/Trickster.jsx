@@ -50,94 +50,140 @@ const Trickster = () => {
 
   return (
     <Box>
-      <h4 style={{ padding: 20, textAlign: "center",
-      
-       
-      
-
-    
-    }}>Trickster</h4>
-      <div> 
+      <h4 style={{ padding: 20, textAlign: "center" }}>Trickster</h4>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
         <label htmlFor="imposterId">Trickster Id</label>
         <input
-          style={{ width: "100%", marginBottom: 10, marginTop: 10 ,padding:10,borderRadius:5}}
+          style={{
+            width: "100%",
+            marginBottom: 10,
+            marginTop: 10,
+            padding: 10,
+            borderRadius: 5,
+          
+          }}
           name={imposterId}
           value={imposterId}
           onChange={(e) => setImposterId(e.target.value)}
         />
         <label htmlFor="imposterName">Trickster Name</label>
         <input
-          style={{ width: "100%", marginBottom: 10, marginTop: 10 ,padding:10,borderRadius:5}}
+          style={{
+            width: "100%",
+            marginBottom: 10,
+            marginTop: 10,
+            padding: 10,
+            borderRadius: 5,
+          }}
           name={imposterName}
           value={imposterName}
           onChange={(e) => setImposterName(e.target.value)}
         />
         <label htmlFor="imposterDescription">Trickster Description</label>
         <input
-          style={{ width: "100%", marginBottom: 10, marginTop: 10 ,padding:10,borderRadius:5}}
+          style={{
+            width: "100%",
+            marginBottom: 10,
+            marginTop: 10,
+            padding: 10,
+            borderRadius: 5,
+          }}
           name={imposterDescription}
           value={imposterDescription}
           onChange={(e) => setImposterDescription(e.target.value)}
         />
         <label htmlFor="imposterHint">Trickster Hint</label>
         <input
-          style={{ width: "100%", marginBottom: 10, marginTop: 10 ,padding:10,borderRadius:5}}
+          style={{
+            width: "100%",
+            marginBottom: 10,
+            marginTop: 10,
+            padding: 10,
+            borderRadius: 5,
+          }}
           name={imposterHint}
           value={imposterHint}
           onChange={(e) => setImposterHint(e.target.value)}
         />
         <label htmlFor="imposterImage">Trickster Image</label>
         <input
-          style={{ width: "100%", marginBottom: 10, marginTop: 10 ,padding:10,borderRadius:5}}
+          style={{
+            width: "100%",
+            marginBottom: 10,
+            marginTop: 10,
+            padding: 10,
+            borderRadius: 5,
+          }}
           name={imposterImage}
           value={imposterImage}
           onChange={(e) => setImposterImage(e.target.value)}
         />
         <label htmlFor="imposterActive">Trickster Active</label>
         <input
-          style={{ width: "100%", marginBottom: 10, marginTop: 10 ,padding:10,borderRadius:5}}
+          style={{
+            width: "100%",
+            marginBottom: 10,
+            marginTop: 10,
+            padding: 10,
+            borderRadius: 5,
+          }}
           name={imposterActive}
           value={imposterActive}
           onChange={(e) => setImposterActive(e.target.value)}
         />
         <label htmlFor="imposterActiveTimes">Trickster Active Times</label>
         <input
-
-          style={{ width: "100%", marginBottom: 10, marginTop: 10 ,padding:10,borderRadius:5}}
+          style={{
+            width: "100%",
+            marginBottom: 10,
+            marginTop: 10,
+            padding: 10,
+            borderRadius: 5,
+          }}
           name={imposterActiveTimes}
           value={imposterActiveTimes}
           onChange={(e) => setImposterActiveTimes(e.target.value)}
         />
       </div>
-      <button style={{ marginTop: 10 ,
-        padding:10,
-        borderRadius:5,
-        backgroundColor:"#00bcd4",
-        color:"white"
-      }} 
-      
-      onClick={addImposter}>Add 
+      <button
+        style={{
+          marginTop: 10,
+          padding: 10,
+          borderRadius: 5,
+          backgroundColor: "#00bcd4",
+          color: "white",
+        }}
+        onClick={addImposter}
+      >
+        Add
       </button>
-      <button style={{ marginTop: 10 ,
-        padding:10,
-        borderRadius:5,
-        backgroundColor:"#00bcd4",
-        color:"white"
-      }}
-      >Edit</button>
-      <button style={{ marginTop: 10 ,
-        padding:10,
-        borderRadius:5,
-        backgroundColor:"Red",
-       
-      }}
-      
-      >Delete</button>
+      <button
+        style={{
+          marginTop: 10,
+          padding: 10,
+          borderRadius: 5,
+          backgroundColor: "#00bcd4",
+          color: "white",
+        }}
+      >
+        Edit
+      </button>
+      <button
+        style={{
+          marginTop: 10,
+          padding: 10,
+          borderRadius: 5,
+          backgroundColor: "Red",
+        }}
+      >
+        Delete
+      </button>
     </Box>
   );
-}
+};
 export default Trickster;
-
-
-
-
