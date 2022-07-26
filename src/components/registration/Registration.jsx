@@ -22,9 +22,9 @@ import { collection, doc, setDoc } from "firebase/firestore";
 const Signup = () => {
   const paperStyle = { padding: "30px 20px", width: 300, margin: "20px auto" };
   const headerStyle = { margin: 0 };
-  const avatarStyle = { backgroundColor: "#d64224" };
+  const avatarStyle = { backgroundColor: "#8c8482" };
   const marginTop = { marginTop: 5 };
-  const btnstyle = { backgroundColor: "#d64224" };
+  const btnstyle = { backgroundColor: "#8c8482" };
   const navigate = useNavigate();
 
   const authContext = useContext(AuthContext);

@@ -21,8 +21,8 @@ const Login = () => {
     width: 280,
     margin: "20px auto",
   };
-  const avatarStyle = { backgroundColor: "#d64224" };
-  const btnstyle = { margin: "8px 0", backgroundColor: "#d64224" };
+  const avatarStyle = { backgroundColor: "#8c8482" };
+  const btnstyle = { margin: "8px 0", backgroundColor: "#8c8482" };
   const navigate = useNavigate();
 
   const authContext = useContext(AuthContext);

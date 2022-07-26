@@ -77,7 +77,7 @@ const ResponsiveAppBar = () => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-  const appBarStyle = { backgroundColor: "#d64224" };
+  const appBarStyle = { backgroundColor: "#797d80" };
 
   const logButChange = () => {
     let path = `/signin`;
@@ -99,7 +99,7 @@ const ResponsiveAppBar = () => {
 
   const logoutBtn = (
     <Button
-      sx={{ color: "inherit", bgcolor: "red", margin: 1, width: "90px" }}
+      sx={{  color: "#e1e4e6", bgcolor: "#e1e4e6", margin: 1, width: "90px" }}
       variant="contained"
       onClick={() => {
         try {
@@ -117,7 +117,7 @@ const ResponsiveAppBar = () => {
 
   const loginBtn = (
     <Button
-      sx={{ color: "inherit", bgcolor: "red", margin: 1, width: "90px" }}
+      sx={{ color: "Black", bgcolor: "lightGrey", margin: 1, width: "90px" }}
       variant="contained"
       onClick={logButChange}
     >
@@ -128,7 +128,7 @@ const ResponsiveAppBar = () => {
   const regBtn = (
     <Button
       variant="contained"
-      sx={{ bgcolor: "red", width: "90px" }}
+      sx={{ color: "Black", bgcolor: "lightGrey", margin: 1, width: "90px" }}
       onClick={RegButChange}
     >
       Register
@@ -151,14 +151,14 @@ const ResponsiveAppBar = () => {
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
-              fontWeight: 700,
+              fontFamily: "AmaticSC-Bold",
+              
               letterSpacing: ".3rem",
               color: "inherit",
               textDecoration: "none",
             }}
           >
-            Among YYC
+            Among YYC1
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
