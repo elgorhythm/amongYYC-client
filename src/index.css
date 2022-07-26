@@ -1,0 +1,17 @@
+
+@font-face {
+    font-family: 'AmaticSC-Regular';
+    src: local('AmaticSC-Regular'), url("./assets/fonts/AmaticSC-Regular.ttf") format('truetype');
+  }
+
+  @font-face {
+    font-family: 'AmaticSC-Bold';
+    src: local('AmaticSC-Bold'), url("./assets/fonts/AmaticSC-Bold.ttf") format('truetype');
+  }
+
+  *{
+    font-family: "AmaticSC-Regular", sans-serif;
+    margin: 0;
+    font-size: 18px;
+  }
+
