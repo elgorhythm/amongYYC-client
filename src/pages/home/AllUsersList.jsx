@@ -15,8 +15,8 @@ const AllUsersList
       <FirebaseProvider>
         <AuthProvider>
           <NavBar />
-          <Stack direction="row" spacing={2} justifyContent="space-between">
-            <SideBar />
+          <Stack direction="row" flex={3}>
+            <SideBar flex={1} />
             <UsersList />
             {/* <RightBar /> */}
           </Stack>

@@ -15,10 +15,12 @@ const Tasks
       <FirebaseProvider>
         <AuthProvider>
           <NavBar />
-          <Stack direction="row" spacing={2} justifyContent="space-between">
-            <SideBar />
+          <Stack direction="row"  flex={3}>
+            <SideBar flex={1} />
+            <Stack direction="column" spacing={2} flex={2}>
             <TaskManagement/>
-            <RightBar />
+            </Stack>
+            {/* <RightBar /> */}
           </Stack>
         </AuthProvider>
       </FirebaseProvider>
