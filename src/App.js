@@ -22,6 +22,7 @@ import AdminTasks from "./pages/home/AdminTasks";
 import LeaderBoardPage from "./pages/home/LeaderBoardPage";
 import GameTrickster from "./pages/home/GameTrickster";
 import "./index.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
