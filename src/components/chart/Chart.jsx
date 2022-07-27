@@ -10,12 +10,12 @@ import {
 
 const data = [
   
- 
-    
-    { name: "July", Total:400  },
-    { name: "August", Total: 1500 },
+ {name:"May", Total:100},
+    {name:"June", Total:200},
+    { name: "July", Total:375 },
+    { name: "August", Total: 500 },
     { name: "September", Total: 800 },
-    { name: "October", Total: 500 },
+    { name: "October", Total: 1200},
 
 
 ];
