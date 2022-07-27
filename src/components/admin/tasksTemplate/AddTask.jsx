@@ -120,12 +120,22 @@ const AddTask = ({ id, setTaskId }) => {
         )}
 
         <Form onSubmit={handleSubmit}>
+          <Typography
+            style={{
+              fontSize: "1.2rem",
+              fontWeight: "bold",
+              marginBottom: "1rem",
+              marginTop: "1rem",
+            }}
+          >
+            Task Title
+          </Typography>
           <Form.Group className="mb-3" controlId="formTaskTitle">
             <InputGroup>
-              <InputGroup.Text id="formTaskTitle"></InputGroup.Text>
               <Form.Control
                 as="textarea"
                 aria-label="With textarea"
+                id="title"
                 type="text"
                 placeholder="Task Title"
                 value={title}
@@ -135,8 +145,18 @@ const AddTask = ({ id, setTaskId }) => {
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formTaskAuthor">
+            <Typography
+              style={{
+                fontSize: "1.2rem",
+                fontWeight: "bold",
+                marginBottom: "1rem",
+                marginTop: "1rem",
+              }}
+            >
+              {" "}
+              Task Description
+            </Typography>
             <InputGroup>
-              <InputGroup.Text id="formTaskAuthor"></InputGroup.Text>
               <Form.Control
                 as="textarea"
                 aria-label="With textarea"
@@ -157,7 +177,7 @@ const AddTask = ({ id, setTaskId }) => {
               padding: "5px",
             }}
           >
-            <text
+            <label
               style={{
                 fontSize: "15px",
                 fontWeight: "bold",
@@ -166,7 +186,7 @@ const AddTask = ({ id, setTaskId }) => {
             >
               {" "}
               Select Task type
-            </text>
+            </label>
             <div class="form-check">
               <input
                 value={"qrScan"}
@@ -201,11 +221,37 @@ const AddTask = ({ id, setTaskId }) => {
               </label>
             </div>
           </div>
+          <br />
+        
+
+          <Typography
+            style={{
+              
+              fontSize: "1.2rem",
+              fontWeight: "bold",
+              marginBottom: "1rem",
+              marginTop: "1rem",
+              color:"Blue"
+            }}
+          >
+            {" "}
+            Task Location
+          </Typography>
           <Form.Group className="mb-3" controlId="formTaskAuthor"></Form.Group>
 
           <div display="flex" flex-direction="row">
-            <Typography> Task Location</Typography>
             <Form.Group className="mb-3" controlId="formTaskAuthor">
+              <Typography
+                style={{
+                  fontSize: "1.2rem",
+                  fontWeight: "bold",
+                  marginBottom: "1rem",
+                  marginTop: "1rem",
+                }}
+              >
+                {" "}
+                Latitude
+              </Typography>
               <InputGroup>
                 <InputGroup.Text id="formTasklatitude"></InputGroup.Text>
                 <Form.Control
@@ -219,6 +265,17 @@ const AddTask = ({ id, setTaskId }) => {
               </InputGroup>
             </Form.Group>
             <Form.Group className="mb-3" controlId="formTaskAuthor">
+              <Typography
+                style={{
+                  fontSize: "1.2rem",
+                  fontWeight: "bold",
+                  marginBottom: "1rem",
+                  marginTop: "1rem",
+                }}
+              >
+                {" "}
+                Longitude
+              </Typography>
               <InputGroup>
                 <InputGroup.Text id="formTasklongitude"></InputGroup.Text>
                 <Form.Control
@@ -233,6 +290,17 @@ const AddTask = ({ id, setTaskId }) => {
             </Form.Group>
           </div>
           <Form.Group className="mb-3" controlId="formTaskAuthor">
+            <Typography
+              style={{
+                fontSize: "1.2rem",
+                fontWeight: "bold",
+                marginBottom: "1rem",
+                marginTop: "1rem",
+              }}
+            >
+              {" "}
+              Task Address
+            </Typography>
             <InputGroup>
               <InputGroup.Text id="formTasklongitude"></InputGroup.Text>
               <Form.Control
@@ -246,6 +314,17 @@ const AddTask = ({ id, setTaskId }) => {
             </InputGroup>
           </Form.Group>
           <Form.Group className="mb-3" controlId="formTaskAuthor">
+            <Typography
+              style={{
+                fontSize: "1.2rem",
+                fontWeight: "bold",
+                marginBottom: "1rem",
+                marginTop: "1rem",
+              }}
+            >
+              {" "}
+              Score
+            </Typography>
             <InputGroup>
               <InputGroup.Text id="formTasklongitude"></InputGroup.Text>
               <Form.Control
@@ -282,7 +361,9 @@ const AddTask = ({ id, setTaskId }) => {
             </Button>
           </ButtonGroup>
           <div className="d-grid gap-2">
-            <Button variant="primary" type="Submit">
+            <Button variant="success" type="Submit" 
+            size="lg"
+            >
               Add/ Update
             </Button>
           </div>
