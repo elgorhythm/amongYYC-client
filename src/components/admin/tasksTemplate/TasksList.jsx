@@ -9,9 +9,10 @@ import {
   updateDoc,
 } from "firebase/firestore";
 import React, { useContext, useEffect, useState } from "react";
-import { Table, Button } from "react-bootstrap";
+import {  Button } from "react-bootstrap";
 import { FirebaseContext } from "../../../providers/FirebaseProvider";
 import TaskDataServices from "./TaskDataServices";
+import Table from "react-bootstrap/Table";
 
 const TasksList = ({ getTaskId }) => {
   const fbContext = useContext(FirebaseContext);
@@ -45,17 +46,23 @@ const TasksList = ({ getTaskId }) => {
  
   return (
     <>
-      <div>
+      <div  
+      style={{
+        display: "flex",
+        justifyContent:"flex-end",
+      }}
       
-        <Button variant="dark edit" onClick={getTasks}>
+      >
+      
+        <Button variant="dark edit" onClick={getTasks}  >
           Refresh List
         </Button>
       </div>
 
       {/* <pre>{JSON.stringify(Tasks, undefined, 2)}</pre>} */}
-      <Table responsive ="lg">
+      <Table  striped bordered hover   >
         <thead>
-          <tr style={ {backgroundColor: "gray" } }>
+          <tr  >
             <th>#</th>
             <th>Task Title</th>
             <th>Task Description</th>
@@ -72,15 +79,15 @@ const TasksList = ({ getTaskId }) => {
           {Tasks.map((doc, index) => {
             return (
               <tr key={doc.id}>
-                <td style={{ padding: "10px"}}>{index + 1}</td>
-                <td style={{ padding: "10px"}}>{doc.title}</td>
-                <td style={{ padding: "20px" }}>{doc.description}</td>
-                <td style={{ padding: "10px"}}>{doc.type}</td>
-                <td style={{ padding: "10px"}}>{doc.active}</td>
-                <td style={{ padding: "10px"}}>{doc.score}</td>
-                <td style={{ padding: "10px"}}>{doc.taskLatitude}</td>
-                <td style={{ padding: "10px"}}>{doc.taskLongitude}</td>
-                <td style={{ padding: "10px"}}>{doc.taskAddress}</td>
+                <td style={{ padding: "5px"}}>{index + 1}</td>
+                <td style={{ padding: "5px"}}>{doc.title}</td>
+                <td style={{ padding: "10px" }}>{doc.description}</td>
+                <td style={{ padding: "5px"}}>{doc.type}</td>
+                <td style={{ padding: "5px"}}>{doc.active}</td>
+                <td style={{ padding: "5px"}}>{doc.score}</td>
+                <td style={{ padding: "5px"}}>{doc.taskLatitude}</td>
+                <td style={{ padding: "5px"}}>{doc.taskLongitude}</td>
+                <td style={{ padding: "5px"}}>{doc.address}</td>
 
                               
                 <td>
@@ -105,6 +112,8 @@ const TasksList = ({ getTaskId }) => {
           })}
         </tbody>
       </Table>
+    
+   
     </>
   );
 };
