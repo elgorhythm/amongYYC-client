@@ -14,18 +14,12 @@ import { Link } from "react-router-dom";
 
 import { useNavigate } from "react-router-dom";
 
-
-
 const SideBar = () => {
-
-  
- 
-
   const navigate = useNavigate();
 
   const signOut = () => {
-   
-    navigate("/");
+    localStorage.removeItem("token");
+    navigate("/signin");
   };
 
   return (
@@ -39,27 +33,32 @@ const SideBar = () => {
       <div className="center">
         <ul>
           <p className="title">MAIN</p>
-          <li>
-            <DashboardIcon className="icon" />
-            <span>DashBoard</span>
-          </li>
+          <Link to="/">
+            <li>
+              <DashboardIcon className="icon" />
+              <span>DashBoard</span>
+            </li>
+          </Link>
           <p className="title">LIST</p>
-          <Link to="users" style={{ textDecoration: "none" }}>
+
+          <Link to="/usersList" style={{ textDecoration: "none" }}>
             <li>
               <PersonOutlineIcon className="icon" />
               <span>Users</span>
             </li>
           </Link>
-          <Link to="tasks" style={{ textDecoration: "none" }}>
+          <Link to="/TasksAdmin" style={{ textDecoration: "none" }}>
             <li>
               <TaskIcon className="icon" />
               <span>Tasks</span>
             </li>
           </Link>
+          <Link to="/Trickster" style={{ textDecoration: "none" }}>
           <li>
             <AddReactionIcon className="icon" />
             <span>Tricksters</span>
           </li>
+          </Link>
           <li>
             <EmojiEventsIcon className="icon" />
             <span>Raffles</span>
@@ -79,10 +78,12 @@ const SideBar = () => {
             <span>Settings</span>
           </li>
           <p className="title">USER</p>
+          <Link to="/profile" >
           <li>
             <AccountCircleOutlinedIcon className="icon" />
             <span>Profile</span>
           </li>
+          </Link>
           <li>
             <ExitToAppIcon className="icon" />
             <span onClick={signOut}>Log out</span>
@@ -90,14 +91,8 @@ const SideBar = () => {
         </ul>
       </div>
       <div className="bottom">
-        <div
-          className="colorOption"
-         
-        ></div>
-        <div
-          className="colorOption"
-          
-        ></div>
+        <div className="colorOption"></div>
+        <div className="colorOption"></div>
       </div>
     </div>
   );
