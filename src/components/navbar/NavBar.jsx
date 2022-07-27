@@ -128,7 +128,7 @@ const ResponsiveAppBar = () => {
       variant="text"
       onClick={logButChange}
     >
-      LOGIN
+    
     </Button>
   );
 
