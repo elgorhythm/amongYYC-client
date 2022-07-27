@@ -13,12 +13,11 @@ const UserProfile = () => {
       <FirebaseProvider>
         <AuthProvider>
           <NavBar />
-          <Stack direction="row" spacing={2} 
-
-          
-          >
-            <SideBar />
-            <Profile />
+          <Stack direction="row" flex={3}>
+            <SideBar flex={1} />
+            <Stack direction="column" spacing={2} flex={2}>
+              <Profile />
+            </Stack>
             {/* <RightBar /> */}
           </Stack>
         </AuthProvider>
