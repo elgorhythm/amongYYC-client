@@ -92,6 +92,12 @@ const TasksList = ({ getTaskId }) => {
                               
                 <td>
                   <Button
+                   style={{width:"70px",
+                   justifyContent:"center",
+                   alignItems:"center",
+                   alignSelf:"center",
+                  
+                  }}      
                     variant="secondary"
                     className="edit"
                     onClick={(e) => getTaskId(doc.id)}
@@ -99,7 +105,12 @@ const TasksList = ({ getTaskId }) => {
                     Edit
                   </Button>
                   <Button
-                    
+                   style={{width:"70px",
+                   justifyContent:"center",
+                   alignItems:"center",
+                   alignSelf:"center",
+                  
+                  }}           
                     variant="danger"
                     className="delete"
                     onClick={(e) => deleteHandler(doc.id)}
