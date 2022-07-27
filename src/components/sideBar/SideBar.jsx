@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./sideBar.scss";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import InsertChartIcon from "@mui/icons-material/InsertChart";
@@ -13,12 +13,21 @@ import AddReactionIcon from "@mui/icons-material/AddReaction";
 import { Link } from "react-router-dom";
 
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const SideBar = () => {
+  
+  const authContext = useContext(AuthContext);
+  
+  const logoutFn = authContext.logout;
+ 
+  const user = authContext.user;
+
+
   const navigate = useNavigate();
 
   const signOut = () => {
-    localStorage.removeItem("token");
+    logoutFn();
     navigate("/signin");
   };
 
