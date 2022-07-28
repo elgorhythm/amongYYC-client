@@ -10,12 +10,12 @@ import {
 
 const data = [
   
- {name:"May", Total:100},
-    {name:"June", Total:200},
-    { name: "July", Total:375 },
-    { name: "August", Total: 500 },
-    { name: "September", Total: 800 },
-    { name: "October", Total: 1200},
+    {name:"May", Total:500},
+    {name:"June", Total:600},
+    { name: "July", Total:870 },
+    { name: "August", Total: 1200 },
+    { name: "September", Total: 1400 },
+    { name: "October", Total: 1450},
 
 
 ];
@@ -25,7 +25,7 @@ const data = [
 const Chart = ({ aspect, title }) => {
   return (
     <div className="chart">
-      <div className="title">Game players Last 6 Month</div>
+      <div className="title">  6 Months Game Play</div>
       <ResponsiveContainer width="100%" aspect={aspect} 
         height={350}>
       
