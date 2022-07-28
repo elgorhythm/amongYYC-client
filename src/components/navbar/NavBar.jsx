@@ -26,11 +26,10 @@ import {
   onSnapshot,
 } from "firebase/firestore";
 import { useState, useEffect } from "react";
-import logo from "../../../src/assets/fonts/logo.png"
+import logo from "../../../src/assets/fonts/logo.png";
 
 const appBarMenus = [];
-const settings = ["Profile","UsersList", "TasksAdmin","Trickster"];
-
+const settings = ["Profile", "UsersList", "TasksAdmin", "Trickster"];
 
 const ResponsiveAppBar = () => {
   let navigate = useNavigate();
@@ -79,12 +78,13 @@ const ResponsiveAppBar = () => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-  const appBarStyle = { backgroundColor: "#394048" ,
+  const appBarStyle = {
+    backgroundColor: "#394048",
     color: "white",
     fontFamily: "Roboto",
     fontSize: "1.5rem",
     fontWeight: "bold",
-    };
+  };
 
   const logButChange = () => {
     let path = `/signin`;
@@ -106,7 +106,13 @@ const ResponsiveAppBar = () => {
 
   const logoutBtn = (
     <Button
-    sx={{ color: "skyblue", margin: 0, width: "90px" ,textDecoration:"underline",marginRight:1}}
+      sx={{
+        color: "skyblue",
+        margin: 0,
+        width: "90px",
+        textDecoration: "underline",
+        marginRight: 1,
+      }}
       variant="text"
       onClick={() => {
         try {
@@ -124,18 +130,27 @@ const ResponsiveAppBar = () => {
 
   const loginBtn = (
     <Button
-      sx={{ color: "skyblue", margin:0, width: "90px" ,textDecoration:"underline"}}
+      sx={{
+        color: "skyblue",
+        margin: 0,
+        width: "90px",
+        textDecoration: "underline",
+      }}
       variant="text"
       onClick={logButChange}
-    >
-    
-    </Button>
+    ></Button>
   );
 
   const regBtn = (
     <Button
       variant="text"
-      sx={{ color: "skyblue", margin: 0, width: "90px" ,textDecoration:"underline",marginRight:1}}
+      sx={{
+        color: "skyblue",
+        margin: 0,
+        width: "90px",
+        textDecoration: "underline",
+        marginRight: 1,
+      }}
       onClick={RegButChange}
     >
       Register
@@ -167,11 +182,9 @@ const ResponsiveAppBar = () => {
           >
             Among YYC
           </Typography> */}
-         <Typography
-            variant="h6"
-            >
-            <img src={logo} alt="logo" style={{width: "100px"}}/>
-            </Typography>
+          <Typography variant="h6">
+            <img src={logo} alt="logo" style={{ width: "100px" }} />
+          </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
