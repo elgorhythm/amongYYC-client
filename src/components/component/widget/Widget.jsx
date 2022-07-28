@@ -19,8 +19,8 @@ const Widget = ({ type }) => {
     case "user":
       data = {
         title: "Users",
-        value: "82",
-        diff: "+2",
+        value: "820",
+        diff: "+32",
         isMoney: false,
         icon: (
           <PersonOutlinedIcon
@@ -56,7 +56,7 @@ const Widget = ({ type }) => {
       data = {
         title: "Coins",
         value: "4243",
-        diff: "+2",
+        diff: "+22",
         isMoney: false,
         icon: (
           <TollIcon
@@ -74,7 +74,7 @@ const Widget = ({ type }) => {
       data = {
         title: "Donated",
         value: "2642",
-        diff: "+25",
+        diff: "+35",
         isMoney: false,
         icon: (
           <VolunteerActivismIcon
@@ -99,7 +99,7 @@ const Widget = ({ type }) => {
       </div>
       <div className="right">
         <div className="percentage">
-          <KeyboardArrowUpIcon />
+          <KeyboardArrowUpIcon          />
           {data.diff} %
         </div>
         {data.icon}
