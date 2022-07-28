@@ -34,11 +34,6 @@ function Profile() {
           setEmail(docSnap.data().email);
           setAge(docSnap.data().age);
           setGender(docSnap.data().gender);
-          setNotVoted(docSnap.data().hasNotVoted);
-          setHasCotedCorrectly(docSnap.data().hasVotedCorrectly);
-          setGhostedForTheWeek(docSnap.data().isGhost);
-          setTotalScoreWon(docSnap.data().totalScore);
-          setTermsAccept(docSnap.data().termsAccept);
 
           // setAdmin(docSnap.data().admin);
 
@@ -55,47 +50,51 @@ function Profile() {
   return (
     <Box
       style={{
-        paddingLeft: 20,
-        paddingRight: 20,
-        paddingBottom: 20,
-        backgroundColor: "#f5f5f5",
-        // borderRadius:10,
-        // boxShadow: "0px 0px 10px #000000",
-
-        marginBottom: 20,
-        marginLeft: 20,
-        marginRight: 20,
-        maxWidth: 300,
-        // width: "100%",
-        // height: "100%",
-        // display: "flex",
-        // flexDirection: "column",
-        justifyContent: "center",
-        alignSelf: "center",
-        alignContent: "center",
+        marginTop: "30px",
+        marginLeft: "20px",
       }}
     >
-      <Typography>Name: {name} </Typography>
+      <Typography
+        style={{
+          fontSize: "15px",
+          fontWeight: "bold",
+          marginBottom: "1px",
+        }}
+      >
+        Name: {name}{" "}
+      </Typography>
       <Typography>Email: {email} </Typography>
+      <Typography>Password:{"*******"}</Typography>
       <Typography>Age: {age} </Typography>
-      <Typography>Gender: {gender} </Typography>
-      <Typography>Yet To vote: {notVoted}</Typography>
-      <Typography>Has Voted Correctly: {hasVotedCorrectly}</Typography>
-      <Typography>Eliminated for the Week: {ghostedForTheWeek}</Typography>
-      <Typography>Total Score Won: {totalScoreWon}</Typography>
-      <Typography>Terms Accepted: {termsAccept} </Typography>
+    
+     <Typography>User Created @ : {"July 4,2022"}</Typography>
+      <Typography></Typography>
+      <Typography></Typography>
       <Button
-        variant="contained"
-        color="primary"
+      style={{
+        backgroundColor: "#394048",
+        color: "white",
+        fontFamily: "Roboto",
+        fontSize: "10px",
+        fontWeight: "bold",
+        
+        marginLeft: "10px",}}
+
+      
         onClick={() => {
           setTermsAccept(true);
         }}
       >
-        Edit
+        Edit Profile
       </Button>
       <Button
-        variant="contained"
-        color="primary"
+        style={{
+          backgroundColor: "Red",
+          color: "white",
+          fontFamily: "Roboto",
+          fontSize: "10px",
+          fontWeight: "bold",
+        }}
         onClick={() => {
           setTermsAccept(true);
         }}
