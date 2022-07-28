@@ -118,7 +118,24 @@ const AddTask = ({ id, setTaskId }) => {
             {message?.msg}
           </Alert>
         )}
-
+        <div  style={
+          {
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+        }}     >
+            <Typography
+            style={{
+              fontSize: "1.5rem",
+              fontWeight: "bold",
+              marginBottom: "1rem",
+              marginTop: "1rem",
+           
+            }}
+          >
+            Add Task 
+          </Typography>
+          </div>
         <Form onSubmit={handleSubmit}>
           <Typography
             style={{
